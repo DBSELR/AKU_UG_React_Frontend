@@ -1,0 +1,7 @@
+{
+  "name": "temp_frontend_setup",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
