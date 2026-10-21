@@ -1,0 +1,786 @@
+/* ==========================================================================
+   Andhra Kesari University - Admin Portal Main Page Styles
+   State-of-the-Art Glassmorphic Multi-Palette University COE Console
+   ========================================================================== */
+
+.aku-admin-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: transparent;
+  color: var(--theme-text-color, #0f172a);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+/* ---------------- Top Navbar ---------------- */
+.aku-admin-header {
+  background: linear-gradient(
+    135deg, 
+    rgba(var(--theme-primary-rgb, 13, 148, 136), 0.88) 0%, 
+    rgba(var(--theme-secondary-rgb, 20, 184, 166), 0.85) 100%
+  );
+  color: #ffffff;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 30px -6px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.aku-admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.aku-admin-toggle-btn {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aku-admin-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: scale(1.08);
+}
+
+.aku-admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 5px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aku-admin-brand:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.aku-admin-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.94);
+  padding: 3px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.aku-admin-header-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.aku-admin-header-heading {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.aku-admin-header-sub {
+  font-size: 0.7rem;
+  color: #fef08a;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.aku-admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aku-admin-officer-pill {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.aku-admin-theme-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aku-admin-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: #ffffff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.aku-admin-btn-logout {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ff4d4d;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.aku-admin-btn-logout:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.5);
+  transform: translateY(-1px);
+}
+
+
+/* ---------------- COE Helpline & Control Room Ticker Bar ---------------- */
+.aku-admin-support-bar {
+  background: var(--glass-bg-header);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border-bottom: 1.5px solid var(--glass-border);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.aku-admin-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass-bg-subtle);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--theme-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: var(--glass-shadow-sm), var(--glass-inset-bevel);
+}
+
+.aku-admin-pulse-dot-green {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDotSmall 1.6s ease-in-out infinite;
+}
+
+/* Auto-scrolling ticker viewport */
+.aku-admin-scroller-viewport {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(to right, transparent 0%, black 32px, black calc(100% - 32px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 32px, black calc(100% - 32px), transparent 100%);
+  cursor: pointer;
+}
+
+.aku-admin-scroller-track {
+  position: absolute;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  animation: scrollLeftRightAlternate 12s ease-in-out infinite alternate;
+  will-change: transform, left;
+}
+
+.aku-admin-scroller-viewport:hover .aku-admin-scroller-track {
+  animation-play-state: paused;
+}
+
+.aku-admin-ticker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid var(--glass-border);
+  padding: 6px 18px;
+  border-radius: 30px;
+  box-shadow: var(--glass-shadow-sm), var(--glass-inset-bevel);
+  color: var(--theme-text-color);
+  font-size: 0.86rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.aku-admin-scroller-viewport:hover .aku-admin-ticker-pill {
+  border-color: var(--theme-primary);
+  box-shadow: 0 6px 18px var(--theme-shadow);
+  background: var(--glass-bg);
+}
+
+
+.aku-admin-btn-emergency {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 9px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.aku-admin-btn-emergency:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.55);
+}
+
+/* ---------------- Layout: Sidebar + Full Width Content ---------------- */
+.aku-admin-layout {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  position: relative;
+  min-height: calc(100vh - 120px);
+  box-sizing: border-box;
+}
+
+/* Main Content Area: Must stretch 100% */
+.aku-admin-content {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 26px 32px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Breadcrumb Bar */
+.aku-admin-breadcrumbs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.aku-admin-breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--theme-text-muted, #64748b);
+}
+
+.aku-admin-breadcrumb-link {
+  color: var(--theme-primary, #0369a1);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.aku-admin-breadcrumb-active {
+  color: var(--theme-text-color, #0f172a);
+  font-weight: 800;
+}
+
+.aku-admin-btn-back {
+  background: var(--theme-card-bg, #ffffff);
+  border: 1px solid var(--theme-card-border, #cbd5e1);
+  color: var(--theme-text-color, #1e293b);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.aku-admin-btn-back:hover {
+  background: var(--theme-primary, #0369a1);
+  color: #ffffff;
+  border-color: var(--theme-primary, #0369a1);
+}
+
+/* Quick Metrics Row */
+.aku-admin-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+  width: 100%;
+}
+
+.aku-admin-metric-card {
+  background: var(--glass-bg-card);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border-radius: 18px;
+  border: 1.5px solid var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow), var(--glass-inset-bevel);
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.aku-admin-metric-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--theme-secondary);
+  box-shadow: var(--glass-shadow-lg), 0 0 25px var(--theme-shadow);
+}
+
+.aku-admin-metric-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), var(--glass-inset-bevel);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.aku-admin-metric-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.aku-admin-metric-value {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--theme-text-color, #0f172a);
+  line-height: 1.1;
+}
+
+.aku-admin-metric-label {
+  font-size: 0.8rem;
+  color: var(--theme-text-muted, #64748b);
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+/* ---------------- Admin Panel Card: Full Width ---------------- */
+.aku-admin-panel-card {
+  width: 100%;
+  max-width: none !important;
+  background: var(--glass-bg-card);
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(190%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(190%);
+  border-radius: 26px;
+  border: 1.5px solid var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow-lg), var(--glass-inset-glow);
+  padding: 32px 30px 38px 30px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  text-align: left !important;
+  box-sizing: border-box;
+}
+
+/* Rainbow decorative accent line at top */
+.aku-admin-panel-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b 0%, var(--theme-primary) 50%, var(--theme-secondary) 100%);
+  z-index: 5;
+}
+
+.aku-admin-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  border-bottom: 1.5px solid var(--glass-border-subtle);
+  padding-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.aku-admin-panel-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.aku-admin-panel-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.aku-admin-panel-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--theme-primary);
+  margin: 0 0 4px 0;
+  letter-spacing: 0.3px;
+}
+
+.aku-admin-panel-subtitle {
+  font-size: 0.84rem;
+  color: var(--theme-text-muted);
+  font-weight: 600;
+  margin: 0;
+}
+
+.aku-admin-badge-session {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.1);
+}
+
+/* ---------------- Operations Action Grid ---------------- */
+.aku-admin-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.aku-admin-action-card {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1.5px solid var(--glass-border-subtle);
+  border-radius: 18px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--glass-shadow-sm), var(--glass-inset-bevel);
+}
+
+.aku-admin-action-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+  opacity: 0.35;
+  transition: opacity 0.25s ease, width 0.25s ease;
+}
+
+.aku-admin-action-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--theme-primary);
+  background: var(--glass-bg);
+  box-shadow: 0 16px 36px -8px var(--theme-shadow), var(--glass-inset-glow);
+}
+
+.aku-admin-action-card:hover::before {
+  opacity: 1;
+  width: 5px;
+}
+
+
+.aku-admin-action-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.aku-admin-action-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  background: linear-gradient(135deg, rgba(3, 105, 161, 0.1) 0%, rgba(32, 178, 170, 0.1) 100%);
+  color: var(--theme-primary, #0369a1);
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aku-admin-action-card:hover .aku-admin-action-icon-wrap {
+  transform: scale(1.12) rotate(4deg);
+  background: linear-gradient(135deg, var(--theme-primary, #0369a1) 0%, var(--theme-secondary, #20b2aa) 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 16px var(--theme-shadow, rgba(3, 105, 161, 0.3));
+}
+
+.aku-admin-action-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.aku-admin-action-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aku-admin-action-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(3, 105, 161, 0.08);
+  color: var(--theme-primary, #0369a1);
+}
+
+.aku-admin-action-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.aku-admin-action-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--theme-text-color, #0f172a);
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.aku-admin-action-card:hover .aku-admin-action-title {
+  color: var(--theme-primary, #0369a1);
+}
+
+.aku-admin-action-desc {
+  font-size: 0.76rem;
+  color: var(--theme-text-muted, #64748b);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.aku-admin-action-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--theme-card-bg-subtle, #f1f5f9);
+  color: var(--theme-text-muted, #64748b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.aku-admin-action-card:hover .aku-admin-action-arrow {
+  background: var(--theme-primary, #0369a1);
+  color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: 0 4px 10px var(--theme-shadow, rgba(3, 105, 161, 0.3));
+}
+
+/* ---------------- Table Toolbars & Data Tables ---------------- */
+.aku-admin-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-sm), var(--glass-inset-bevel);
+}
+
+.aku-admin-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 18px;
+  border: 1.5px solid var(--glass-border-highlight);
+  background: var(--glass-bg-card);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  box-shadow: var(--glass-shadow-sm), var(--glass-inset-bevel);
+  margin-bottom: 20px;
+}
+
+.aku-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.aku-admin-table th {
+  background: var(--glass-bg-subtle);
+  padding: 14px 20px;
+  font-weight: 800;
+  color: var(--theme-text-color);
+  border-bottom: 2px solid var(--glass-border);
+  white-space: nowrap;
+}
+
+.aku-admin-table td {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+  color: var(--theme-text-color);
+  vertical-align: middle;
+}
+
+.aku-admin-table tr:hover {
+  background: var(--theme-highlight-bg);
+}
+
+
+.aku-admin-badge-approved {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  display: inline-block;
+}
+
+.aku-admin-badge-pending {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  display: inline-block;
+}
+
+.aku-admin-badge-urgent {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .aku-admin-content {
+    padding: 18px 16px;
+  }
+  .aku-admin-actions-grid {
+    grid-template-columns: 1fr;
+  }
+}

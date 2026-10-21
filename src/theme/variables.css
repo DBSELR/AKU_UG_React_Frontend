@@ -1,2 +1,444 @@
-/* For information on how to create your own theme, please refer to:
-http://ionicframework.com/docs/theming/ */
+/* ========================================================
+   Andhra Kesari University - Master Glassmorphism Design System
+   Multi-Palette Reactive, Ultra-Crisp Acrylic Glass Architecture
+   ======================================================== */
+
+:root {
+  /* Default Palette: AKU Teal */
+  --theme-primary: #0d9488;
+  --theme-primary-rgb: 13, 148, 136;
+  --theme-secondary: #14b8a6;
+  --theme-secondary-rgb: 20, 184, 166;
+  --theme-accent: #84cc16;
+  --theme-accent-rgb: 132, 204, 22;
+  --theme-bg-page: #e2eaf5;
+  --highlight-text: #15803d;
+
+  /* Typography & Core Text */
+  --theme-text-color: #0f172a;
+  --theme-text-muted: #475569;
+  --theme-text-inverted: #ffffff;
+
+  /* Dynamic Theme Shadow / Glow */
+  --theme-shadow: rgba(13, 148, 136, 0.28);
+  --theme-shadow-lg: rgba(13, 148, 136, 0.42);
+  --theme-highlight-bg: rgba(13, 148, 136, 0.09);
+
+    /* Glassmorphism Surface Tokens (Light Mode) */
+  --glass-bg: rgba(255, 255, 255, 0.64);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.42);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.80);
+  --glass-bg-solid: rgba(255, 255, 255, 0.94);
+  --glass-bg-header: rgba(255, 255, 255, 0.74);
+  --glass-bg-card: rgba(255, 255, 255, 0.68);
+
+  /* Glassmorphism Border & Specular Highlights */
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-border-subtle: rgba(255, 255, 255, 0.45);
+  --glass-border-highlight: rgba(255, 255, 255, 0.95);
+  --glass-border-glow: rgba(var(--theme-primary-rgb, 13, 148, 136), 0.35);
+
+  /* Backwards compatibility aliases */
+  --theme-card-bg: var(--glass-bg-card);
+  --theme-card-bg-subtle: var(--glass-bg-subtle);
+  --theme-card-border: var(--glass-border);
+
+  /* Blur Intensities */
+  --glass-blur-sm: 8px;
+  --glass-blur: 20px;
+  --glass-blur-lg: 28px;
+  --glass-blur-heavy: 36px;
+
+  /* Glass Shadows & Insets */
+  --glass-shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 0 0 1px var(--glass-border-subtle);
+  --glass-shadow: 0 16px 38px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px var(--glass-border);
+  --glass-shadow-lg: 0 26px 60px -14px rgba(15, 23, 42, 0.16), 0 0 0 1px var(--glass-border-highlight);
+  --glass-inset-bevel: inset 0 1px 1px 0 rgba(255, 255, 255, 0.85), inset 0 -1px 1px 0 rgba(15, 23, 42, 0.04);
+  --glass-inset-glow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.9), inset 0 0 20px 0 rgba(255, 255, 255, 0.2);
+
+  /* Glass Button Gradients with Specular Sheen */
+  --btn-ug-bg: linear-gradient(135deg, rgba(34, 197, 94, 0.92) 0%, rgba(21, 128, 61, 0.94) 100%);
+  --btn-pg-bg: linear-gradient(135deg, rgba(14, 165, 233, 0.92) 0%, rgba(2, 132, 199, 0.94) 100%);
+  --btn-admin-bg: linear-gradient(135deg, rgba(245, 158, 11, 0.92) 0%, rgba(180, 83, 9, 0.94) 100%);
+}
+
+/* ========================================================
+   12 COLOR THEME PALETTES (data-theme)
+   ======================================================== */
+
+/* 1. Teal (Default AKU) */
+[data-theme="teal"] {
+  --theme-primary: #0d9488;
+  --theme-primary-rgb: 13, 148, 136;
+  --theme-secondary: #14b8a6;
+  --theme-secondary-rgb: 20, 184, 166;
+  --theme-accent: #84cc16;
+  --theme-bg-page: #e0f2fe;
+  --theme-shadow: rgba(13, 148, 136, 0.32);
+  --theme-shadow-lg: rgba(13, 148, 136, 0.48);
+  --highlight-text: #0f766e;
+}
+
+/* 2. Ocean Blue */
+[data-theme="blue"] {
+  --theme-primary: #0284c7;
+  --theme-primary-rgb: 2, 132, 199;
+  --theme-secondary: #38bdf8;
+  --theme-secondary-rgb: 56, 189, 248;
+  --theme-accent: #06b6d4;
+  --theme-bg-page: #e0f2fe;
+  --theme-shadow: rgba(2, 132, 199, 0.32);
+  --theme-shadow-lg: rgba(2, 132, 199, 0.48);
+  --highlight-text: #0369a1;
+}
+
+/* 3. Midnight Navy */
+[data-theme="midnight"] {
+  --theme-primary: #1e3a8a;
+  --theme-primary-rgb: 30, 58, 138;
+  --theme-secondary: #3b82f6;
+  --theme-secondary-rgb: 59, 130, 246;
+  --theme-accent: #60a5fa;
+  --theme-bg-page: #dbeafe;
+  --theme-shadow: rgba(30, 58, 138, 0.35);
+  --theme-shadow-lg: rgba(30, 58, 138, 0.52);
+  --highlight-text: #1d4ed8;
+}
+
+/* 4. Emerald Green */
+[data-theme="emerald"] {
+  --theme-primary: #059669;
+  --theme-primary-rgb: 5, 150, 105;
+  --theme-secondary: #10b981;
+  --theme-secondary-rgb: 16, 185, 129;
+  --theme-accent: #84cc16;
+  --theme-bg-page: #dcfce7;
+  --theme-shadow: rgba(5, 150, 105, 0.32);
+  --theme-shadow-lg: rgba(5, 150, 105, 0.48);
+  --highlight-text: #047857;
+}
+
+/* 5. Imperial Violet */
+[data-theme="violet"] {
+  --theme-primary: #7c3aed;
+  --theme-primary-rgb: 124, 58, 237;
+  --theme-secondary: #a855f7;
+  --theme-secondary-rgb: 168, 85, 247;
+  --theme-accent: #c084fc;
+  --theme-bg-page: #f3e8ff;
+  --theme-shadow: rgba(124, 58, 237, 0.32);
+  --theme-shadow-lg: rgba(124, 58, 237, 0.48);
+  --highlight-text: #6d28d9;
+}
+
+/* 6. Royal Crimson */
+[data-theme="crimson"] {
+  --theme-primary: #e11d48;
+  --theme-primary-rgb: 225, 29, 72;
+  --theme-secondary: #f43f5e;
+  --theme-secondary-rgb: 244, 63, 94;
+  --theme-accent: #fb7185;
+  --theme-bg-page: #ffe4e6;
+  --theme-shadow: rgba(225, 29, 72, 0.32);
+  --theme-shadow-lg: rgba(225, 29, 72, 0.48);
+  --highlight-text: #be123c;
+}
+
+/* 7. DBASE Orange */
+[data-theme="dbase"] {
+  --theme-primary: #ea580c;
+  --theme-primary-rgb: 234, 88, 12;
+  --theme-secondary: #f97316;
+  --theme-secondary-rgb: 249, 115, 22;
+  --theme-accent: #fbbf24;
+  --theme-bg-page: #ffedd5;
+  --theme-shadow: rgba(234, 88, 12, 0.32);
+  --theme-shadow-lg: rgba(234, 88, 12, 0.48);
+  --highlight-text: #c2410c;
+}
+
+/* 8. Solar Amber */
+[data-theme="amber"] {
+  --theme-primary: #d97706;
+  --theme-primary-rgb: 217, 119, 6;
+  --theme-secondary: #f59e0b;
+  --theme-secondary-rgb: 245, 158, 11;
+  --theme-accent: #fde047;
+  --theme-bg-page: #fef3c7;
+  --theme-shadow: rgba(217, 119, 6, 0.32);
+  --theme-shadow-lg: rgba(217, 119, 6, 0.48);
+  --highlight-text: #b45309;
+}
+
+/* 9. Vibrant Pink */
+[data-theme="pink"] {
+  --theme-primary: #db2777;
+  --theme-primary-rgb: 219, 39, 119;
+  --theme-secondary: #ec4899;
+  --theme-secondary-rgb: 236, 72, 153;
+  --theme-accent: #f472b6;
+  --theme-bg-page: #fce7f3;
+  --theme-shadow: rgba(219, 39, 119, 0.32);
+  --theme-shadow-lg: rgba(219, 39, 119, 0.48);
+  --highlight-text: #be185d;
+}
+
+/* 10. Mocha Bronze */
+[data-theme="chocolate"] {
+  --theme-primary: #854d0e;
+  --theme-primary-rgb: 133, 77, 14;
+  --theme-secondary: #a16207;
+  --theme-secondary-rgb: 161, 98, 7;
+  --theme-accent: #facc15;
+  --theme-bg-page: #fef9c3;
+  --theme-shadow: rgba(133, 77, 14, 0.32);
+  --theme-shadow-lg: rgba(133, 77, 14, 0.48);
+  --highlight-text: #713f12;
+}
+
+/* 11. Lavender Mist */
+[data-theme="lavender"] {
+  --theme-primary: #6366f1;
+  --theme-primary-rgb: 99, 102, 241;
+  --theme-secondary: #818cf8;
+  --theme-secondary-rgb: 129, 140, 248;
+  --theme-accent: #a5b4fc;
+  --theme-bg-page: #e0e7ff;
+  --theme-shadow: rgba(99, 102, 241, 0.32);
+  --theme-shadow-lg: rgba(99, 102, 241, 0.48);
+  --highlight-text: #4f46e5;
+}
+
+/* 12. Graphite Coal */
+[data-theme="coal"] {
+  --theme-primary: #475569;
+  --theme-primary-rgb: 71, 85, 105;
+  --theme-secondary: #64748b;
+  --theme-secondary-rgb: 100, 116, 139;
+  --theme-accent: #94a3b8;
+  --theme-bg-page: #e2e8f0;
+  --theme-shadow: rgba(71, 85, 105, 0.32);
+  --theme-shadow-lg: rgba(71, 85, 105, 0.48);
+  --highlight-text: #334155;
+}
+
+/* ========================================================
+   DARK MODE OVERRIDES (.dark, html.dark)
+   Deep Cosmic Glassmorphism with Luminous Specular Edges
+   ======================================================== */
+.dark, html.dark {
+  --theme-bg-page: #060b14;
+  --theme-text-color: #f8fafc;
+  --theme-text-muted: #94a3b8;
+  --theme-text-inverted: #0f172a;
+  --highlight-text: #a3e635;
+
+  /* Glassmorphism Dark Surfaces */
+  --glass-bg: rgba(15, 23, 42, 0.72);
+  --glass-bg-subtle: rgba(15, 23, 42, 0.48);
+  --glass-bg-elevated: rgba(22, 33, 62, 0.88);
+  --glass-bg-solid: rgba(15, 23, 42, 0.94);
+  --glass-bg-header: rgba(10, 17, 32, 0.82);
+  --glass-bg-card: rgba(15, 23, 42, 0.74);
+
+  /* Crisp Dark Glass Specular Borders */
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --glass-border-highlight: rgba(255, 255, 255, 0.28);
+  --glass-border-glow: rgba(var(--theme-primary-rgb, 13, 148, 136), 0.45);
+
+  --theme-card-bg: var(--glass-bg-card);
+  --theme-card-bg-subtle: var(--glass-bg-subtle);
+  --theme-card-border: var(--glass-border);
+
+  /* Deep Atmosphere Shadows */
+  --glass-shadow-sm: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--glass-border-subtle);
+  --glass-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.65), 0 0 0 1px var(--glass-border);
+  --glass-shadow-lg: 0 28px 75px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--glass-border-highlight);
+  --glass-inset-bevel: inset 0 1px 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4);
+  --glass-inset-glow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.3), inset 0 0 25px 0 rgba(255, 255, 255, 0.03);
+
+  --theme-shadow: rgba(var(--theme-primary-rgb, 13, 148, 136), 0.45);
+  --theme-shadow-lg: rgba(var(--theme-primary-rgb, 13, 148, 136), 0.65);
+}
+
+.dark[data-theme="teal"] {
+  --theme-bg-page: #031518;
+  --theme-card-bg: rgba(6, 30, 36, 0.76);
+  --glass-bg: rgba(6, 30, 36, 0.74);
+  --glass-border: rgba(20, 184, 166, 0.22);
+}
+
+.dark[data-theme="blue"] {
+  --theme-bg-page: #031224;
+  --theme-card-bg: rgba(7, 30, 58, 0.76);
+  --glass-bg: rgba(7, 30, 58, 0.74);
+  --glass-border: rgba(56, 189, 248, 0.22);
+}
+
+.dark[data-theme="midnight"] {
+  --theme-bg-page: #040918;
+  --theme-card-bg: rgba(12, 22, 50, 0.76);
+  --glass-bg: rgba(12, 22, 50, 0.74);
+  --glass-border: rgba(96, 165, 250, 0.22);
+}
+
+.dark[data-theme="emerald"] {
+  --theme-bg-page: #03160e;
+  --theme-card-bg: rgba(6, 34, 22, 0.76);
+  --glass-bg: rgba(6, 34, 22, 0.74);
+  --glass-border: rgba(16, 185, 129, 0.22);
+}
+
+.dark[data-theme="violet"] {
+  --theme-bg-page: #0e061e;
+  --theme-card-bg: rgba(28, 12, 56, 0.76);
+  --glass-bg: rgba(28, 12, 56, 0.74);
+  --glass-border: rgba(168, 85, 247, 0.22);
+}
+
+.dark[data-theme="crimson"] {
+  --theme-bg-page: #190409;
+  --theme-card-bg: rgba(46, 8, 18, 0.76);
+  --glass-bg: rgba(46, 8, 18, 0.74);
+  --glass-border: rgba(244, 63, 94, 0.22);
+}
+
+.dark[data-theme="dbase"] {
+  --theme-bg-page: #1a0a03;
+  --theme-card-bg: rgba(48, 18, 6, 0.76);
+  --glass-bg: rgba(48, 18, 6, 0.74);
+  --glass-border: rgba(249, 115, 22, 0.22);
+}
+
+.dark[data-theme="amber"] {
+  --theme-bg-page: #180d02;
+  --theme-card-bg: rgba(45, 24, 4, 0.76);
+  --glass-bg: rgba(45, 24, 4, 0.74);
+  --glass-border: rgba(245, 158, 11, 0.22);
+}
+
+.dark[data-theme="pink"] {
+  --theme-bg-page: #190412;
+  --theme-card-bg: rgba(46, 10, 32, 0.76);
+  --glass-bg: rgba(46, 10, 32, 0.74);
+  --glass-border: rgba(236, 72, 153, 0.22);
+}
+
+.dark[data-theme="chocolate"] {
+  --theme-bg-page: #120902;
+  --theme-card-bg: rgba(36, 16, 4, 0.76);
+  --glass-bg: rgba(36, 16, 4, 0.74);
+  --glass-border: rgba(202, 138, 4, 0.22);
+}
+
+.dark[data-theme="lavender"] {
+  --theme-bg-page: #08091f;
+  --theme-card-bg: rgba(20, 24, 62, 0.76);
+  --glass-bg: rgba(20, 24, 62, 0.74);
+  --glass-border: rgba(129, 140, 248, 0.22);
+}
+
+.dark[data-theme="coal"] {
+  --theme-bg-page: #0b101b;
+  --theme-card-bg: rgba(24, 33, 49, 0.76);
+  --glass-bg: rgba(24, 33, 49, 0.74);
+  --glass-border: rgba(148, 163, 184, 0.22);
+}
+
+/* ========================================================
+   UNIVERSAL GLASSMORPHISM UTILITY CLASSES
+   ======================================================== */
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-inset-bevel);
+  border-radius: 18px;
+  position: relative;
+}
+
+.glass-panel-elevated {
+  background: var(--glass-bg-elevated);
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(190%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(190%);
+  border: 1px solid var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow-lg), var(--glass-inset-glow);
+  border-radius: 20px;
+}
+
+.glass-input {
+  background: var(--glass-bg-subtle) !important;
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  border: 1.5px solid var(--glass-border) !important;
+  color: var(--theme-text-color) !important;
+  border-radius: 12px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+  .glass-input:focus {
+  border-color: var(--theme-primary) !important;
+  box-shadow: 0 0 0 3px var(--theme-shadow), inset 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  background: var(--glass-bg) !important;
+  outline: none;
+}
+
+
+/* Ionic Transparent App Background for Ambient Glassmorphism */
+ion-app,
+ion-page,
+ion-content,
+.ion-page,
+.aku-ion-content {
+  --background: transparent !important;
+  background: transparent !important;
+}
+
+
+
+/* ========================================================
+   GLOBAL 3D ANIMATIONS & MOTION UTILITIES
+   ======================================================== */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px var(--theme-shadow);
+  }
+  50% {
+    box-shadow: 0 0 32px var(--theme-shadow), 0 0 45px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes glassShine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes auroraShift {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+  }
+  33% {
+    transform: scale(1.12) translate(30px, -20px);
+  }
+  66% {
+    transform: scale(0.92) translate(-25px, 25px);
+  }
+}

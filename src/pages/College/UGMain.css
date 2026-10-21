@@ -1,0 +1,1739 @@
+/* ========================================================
+   Andhra Kesari University - UGMain Dashboard Styles
+   Modern College Portal with Sidebar, Side-Pages, 3D Cards,
+   Multi-Palette Responsive Design System
+   ======================================================== */
+
+.aku-ugmain-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: transparent !important;
+  color: var(--theme-text-color, #0f172a);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+/* ---------------- Top Navbar ---------------- */
+.aku-ugmain-header {
+  background: linear-gradient(
+    135deg, 
+    rgba(var(--theme-primary-rgb, 13, 148, 136), 0.88) 0%, 
+    rgba(var(--theme-secondary-rgb, 20, 184, 166), 0.85) 100%
+  ) !important;
+  color: #ffffff;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 30px -6px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  transition: background 0.4s ease;
+}
+
+.aku-ugmain-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.aku-sidebar-toggle-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.aku-sidebar-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.aku-ugmain-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  padding: 4px 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aku-ugmain-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+}
+
+.aku-ugmain-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.aku-ugmain-brand-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.aku-ugmain-brand-sub {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Nav Menu in Header */
+.aku-ugmain-nav-items {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aku-ugmain-nav-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  position: relative;
+}
+
+.aku-ugmain-nav-btn:hover,
+.aku-ugmain-nav-btn.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.aku-nav-arrow {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.aku-nav-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown styling */
+.aku-header-dropdown-wrap {
+  position: relative;
+}
+
+.aku-header-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 260px;
+  background: var(--theme-card-bg, #ffffff);
+  color: var(--theme-text-color, #1e293b);
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22), 0 0 0 1px var(--theme-card-border, rgba(0, 0, 0, 0.08));
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+  padding: 8px 0;
+  z-index: 1100;
+  animation: dropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.aku-header-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--theme-text-color, #334155);
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.aku-header-dropdown-item:hover {
+  background: var(--theme-card-bg-subtle, rgba(0, 0, 0, 0.05));
+  color: var(--theme-primary, #0369a1);
+}
+
+.aku-header-dropdown-item.active {
+  background: rgba(3, 105, 161, 0.1);
+  color: var(--theme-primary, #0369a1);
+  font-weight: 700;
+}
+
+/* Header Right Actions */
+.aku-ugmain-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aku-college-pill {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aku-college-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  flex-shrink: 0;
+}
+
+/* Header Theme Action Buttons */
+.aku-theme-btn {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+}
+
+.aku-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.32) !important;
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.aku-theme-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+  background-color: var(--theme-accent, #fef08a);
+  box-shadow: 0 0 8px var(--theme-accent, #fef08a);
+  animation: themePulse 2s infinite ease-in-out;
+}
+
+.aku-btn-logout {
+  background: rgba(239, 68, 68, 0.25) !important;
+  border: 1px solid rgba(239, 68, 68, 0.5) !important;
+  color: #ffffff !important;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aku-btn-logout:hover {
+  background: rgba(239, 68, 68, 0.5) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+}
+
+/* ---------------- Technical Support Bar with Auto-Scroller ---------------- */
+.aku-tech-support-bar {
+  background: var(--glass-bg-subtle, rgba(255, 255, 255, 0.55)) !important;
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-sm);
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+/* Live Support Helpdesk Badge */
+.aku-support-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(var(--theme-primary-rgb, 13, 148, 136), 0.12);
+  border: 1px solid rgba(var(--theme-primary-rgb, 13, 148, 136), 0.3);
+  color: var(--theme-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.aku-support-ping-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pingPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pingPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+.aku-support-badge-text {
+  font-size: 0.74rem;
+  letter-spacing: 0.8px;
+}
+
+/* Continuous Left-to-Right & Right-to-Left Auto-Scrolling Viewport */
+.aku-support-scroller-viewport {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 32px,
+    black calc(100% - 32px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 32px,
+    black calc(100% - 32px),
+    transparent 100%
+  );
+  cursor: pointer;
+}
+
+/* Animated Scroller Track: Moves Left-to-Right, then Right-to-Left */
+.aku-support-scroller-track {
+  position: absolute;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  animation: scrollLeftRightAlternate 11s ease-in-out infinite alternate;
+  will-change: transform, left;
+}
+
+/* Pause smoothly when user hovers over ticker */
+.aku-support-scroller-viewport:hover .aku-support-scroller-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeftRightAlternate {
+  0% {
+    left: 0%;
+    transform: translateX(0%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+}
+
+/* Styled Support Timing Pill Container */
+.aku-support-timing-scroller {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--theme-card-bg-subtle, #f8fafc);
+  border: 1.5px solid var(--theme-card-border, #e2e8f0);
+  padding: 6px 18px;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  color: var(--theme-text-color, #1e293b);
+  font-size: 0.86rem;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.aku-support-scroller-viewport:hover .aku-support-timing-scroller {
+  border-color: var(--theme-primary, #0369a1);
+  box-shadow: 0 6px 18px var(--theme-shadow, rgba(3, 105, 161, 0.18));
+  background: var(--theme-card-bg, #ffffff);
+}
+
+.aku-support-phone-icon {
+  font-size: 1.05rem;
+  display: inline-block;
+  animation: ringPhone 3s ease-in-out infinite;
+}
+
+@keyframes ringPhone {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(14deg); }
+  20%, 40% { transform: rotate(-14deg); }
+  50% { transform: rotate(0deg); }
+}
+
+.aku-support-title {
+  color: var(--theme-primary, #0369a1);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.aku-support-phone-link {
+  color: #0284c7;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.aku-support-phone-link:hover {
+  color: #0369a1;
+  text-shadow: 0 0 10px rgba(3, 105, 161, 0.35);
+}
+
+.aku-support-divider {
+  color: var(--theme-card-border, #cbd5e1);
+  font-weight: 300;
+  font-size: 1.15rem;
+  opacity: 0.7;
+}
+
+.aku-support-clock-icon {
+  font-size: 0.95rem;
+  color: #f59e0b;
+}
+
+.aku-support-hours {
+  color: var(--theme-text-color, #334155);
+  font-weight: 700;
+}
+
+/* Raise Ticket Button */
+.aku-btn-raise-ticket {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 9px;
+  font-size: 0.86rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.aku-btn-raise-ticket:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.55);
+  filter: brightness(1.05);
+}
+
+.aku-ticket-icon {
+  font-size: 1.1rem;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.aku-btn-raise-ticket:hover .aku-ticket-icon {
+  transform: rotate(-10deg) scale(1.15);
+}
+
+/* ---------------- Layout: Sidebar + Content ---------------- */
+.aku-ugmain-layout {
+  display: flex;
+  flex: 1;
+  position: relative;
+  min-height: calc(100vh - 120px);
+}
+
+/* Sidebar */
+.aku-ugmain-sidebar {
+  width: 290px;
+  background: var(--glass-bg-card);
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(190%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(190%);
+  border-right: 1.5px solid var(--glass-border-highlight);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+  overflow-y: auto;
+  z-index: 90;
+  box-shadow: 4px 0 24px -4px rgba(15, 23, 42, 0.08);
+}
+
+.aku-ugmain-sidebar.collapsed {
+  width: 0;
+  transform: translateX(-100%);
+  overflow: hidden;
+  border-right: none;
+}
+
+.aku-sidebar-college-card {
+  padding: 22px 18px;
+  border-bottom: 1.5px solid var(--glass-border-subtle);
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+  box-shadow: var(--glass-inset-bevel);
+}
+
+
+.aku-sidebar-college-icon {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  display: inline-block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.aku-sidebar-college-name {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: var(--theme-primary, #0f172a);
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.aku-sidebar-college-meta {
+  font-size: 0.76rem;
+  color: var(--theme-text-muted, #64748b);
+  font-weight: 600;
+}
+
+/* Sidebar Menu Tree */
+.aku-sidebar-nav {
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aku-sidebar-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.aku-sidebar-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--theme-text-color, #334155);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.aku-sidebar-group-header:hover {
+  background: var(--theme-card-bg-subtle, rgba(0, 0, 0, 0.04));
+  color: var(--theme-primary, #0369a1);
+}
+
+.aku-sidebar-group-header.active {
+  background: rgba(3, 105, 161, 0.1);
+  color: var(--theme-primary, #0369a1);
+}
+
+.aku-sidebar-group-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aku-sidebar-group-icon {
+  font-size: 1.1rem;
+}
+
+.aku-sidebar-subitems {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  margin-top: 4px;
+  gap: 2px;
+  border-left: 2px solid var(--theme-card-border, #e2e8f0);
+  margin-left: 18px;
+}
+
+.aku-sidebar-subitem-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--theme-text-muted, #475569);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+
+.aku-sidebar-subitem-btn:hover {
+  background: var(--theme-card-bg-subtle, rgba(0, 0, 0, 0.05));
+  color: var(--theme-primary, #0369a1);
+  padding-left: 16px;
+}
+
+.aku-sidebar-subitem-btn.active {
+  background: var(--theme-primary, #0369a1);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ---------------- Main Content ---------------- */
+.aku-ugmain-content {
+  flex: 1;
+  padding: 26px 30px;
+  overflow-y: auto;
+}
+
+/* Breadcrumb Bar */
+.aku-breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.aku-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--theme-text-muted, #64748b);
+  font-weight: 600;
+}
+
+.aku-breadcrumb-link {
+  color: var(--theme-primary, #0369a1);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.aku-breadcrumb-current {
+  color: var(--theme-text-color, #0f172a);
+  font-weight: 700;
+}
+
+.aku-btn-back-overview {
+  background: var(--theme-card-bg, #ffffff);
+  border: 1px solid var(--theme-card-border, #cbd5e1);
+  color: var(--theme-text-color, #1e293b);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.aku-btn-back-overview:hover {
+  background: var(--theme-primary, #0369a1);
+  color: #ffffff;
+  border-color: var(--theme-primary, #0369a1);
+}
+
+/* Quick Metrics Row */
+.aku-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.aku-metric-card {
+  background: var(--glass-bg-card);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border-radius: 18px;
+  border: 1.5px solid var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow), var(--glass-inset-bevel);
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aku-metric-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--theme-secondary);
+  box-shadow: var(--glass-shadow-lg), 0 0 25px var(--theme-shadow);
+}
+
+.aku-metric-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), var(--glass-inset-bevel);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.aku-metric-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.aku-metric-value {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--theme-text-color, #0f172a);
+  line-height: 1.1;
+}
+
+.aku-metric-label {
+  font-size: 0.8rem;
+  color: var(--theme-text-muted, #64748b);
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+/* ---------------- Home Overview: UG Examination Links ---------------- */
+.aku-exam-links-section {
+  background: var(--glass-bg-card);
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(190%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(190%);
+  border-radius: 26px;
+  border: 1.5px solid var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow-lg), var(--glass-inset-glow);
+  padding: 32px 30px 38px 30px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient decorative top line */
+.aku-exam-links-section::before {
+
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--theme-primary, #0369a1) 0%, var(--theme-secondary, #20b2aa) 50%, #f59e0b 100%);
+}
+
+.aku-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  border-bottom: 1.5px solid var(--theme-card-border, #f1f5f9);
+  padding-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.aku-section-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.aku-section-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  animation: floatSlow 3s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.aku-section-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--theme-primary, #0369a1);
+  margin: 0 0 4px 0;
+  letter-spacing: 0.3px;
+}
+
+.aku-section-subtitle-text {
+  font-size: 0.84rem;
+  color: var(--theme-text-muted, #64748b);
+  font-weight: 600;
+  margin: 0;
+}
+
+.aku-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.1);
+}
+
+.aku-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.7; }
+}
+
+/* Category Filter Toolbar & Search */
+.aku-exam-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  background: var(--theme-card-bg-subtle, #f8fafc);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+}
+
+.aku-exam-category-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.aku-exam-cat-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--theme-text-color, #475569);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aku-exam-cat-btn:hover {
+  background: var(--theme-card-bg, #ffffff);
+  border-color: var(--theme-card-border, #cbd5e1);
+  color: var(--theme-primary, #0369a1);
+}
+
+.aku-exam-cat-btn.active {
+  background: var(--theme-primary, #0369a1);
+  color: #ffffff;
+  border-color: var(--theme-primary, #0369a1);
+  box-shadow: 0 2px 8px var(--theme-shadow, rgba(3, 105, 161, 0.3));
+}
+
+.aku-exam-search-box {
+  position: relative;
+  min-width: 220px;
+}
+
+.aku-exam-search-input {
+  width: 100%;
+  padding: 7px 12px 7px 32px;
+  border-radius: 8px;
+  border: 1px solid var(--theme-card-border, #cbd5e1);
+  background: var(--theme-card-bg, #ffffff);
+  color: var(--theme-text-color, #1e293b);
+  font-size: 0.84rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.aku-exam-search-input:focus {
+  border-color: var(--theme-primary, #0369a1);
+}
+
+.aku-exam-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--theme-text-muted, #94a3b8);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+/* 12 Modern Action Cards Grid */
+.aku-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+.aku-link-card-modern {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1.5px solid var(--glass-border-subtle);
+  border-radius: 18px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--glass-shadow-sm), var(--glass-inset-bevel);
+}
+
+.aku-link-card-modern::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+  opacity: 0.35;
+  transition: opacity 0.25s ease, width 0.25s ease;
+}
+
+
+/* Light sweep reflection on hover */
+.aku-link-card-modern::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  transition: left 0.65s ease;
+  pointer-events: none;
+}
+
+.aku-link-card-modern:hover::after {
+  left: 140%;
+}
+
+.aku-link-card-modern:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: var(--theme-primary, #0369a1);
+  box-shadow: 0 14px 28px -6px var(--theme-shadow, rgba(3, 105, 161, 0.2)), 0 0 0 1px var(--theme-primary, #0369a1);
+}
+
+.aku-link-card-modern:hover::before {
+  opacity: 1;
+  width: 5px;
+}
+
+.aku-link-card-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.aku-link-card-icon-modern {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  background: linear-gradient(135deg, rgba(3, 105, 161, 0.1) 0%, rgba(32, 178, 170, 0.1) 100%);
+  color: var(--theme-primary, #0369a1);
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aku-link-card-modern:hover .aku-link-card-icon-modern {
+  transform: scale(1.12) rotate(4deg);
+  background: linear-gradient(135deg, var(--theme-primary, #0369a1) 0%, var(--theme-secondary, #20b2aa) 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 16px var(--theme-shadow, rgba(3, 105, 161, 0.3));
+}
+
+.aku-link-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.aku-link-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aku-link-category-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(3, 105, 161, 0.08);
+  color: var(--theme-primary, #0369a1);
+}
+
+.aku-link-card-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.aku-link-card-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--theme-text-color, #0f172a);
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.aku-link-card-modern:hover .aku-link-card-title {
+  color: var(--theme-primary, #0369a1);
+}
+
+/* anew.gif badge styling */
+.aku-exam-new-gif {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
+  animation: pulseGif 1.4s ease-in-out infinite alternate;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@keyframes pulseGif {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+.aku-link-card-desc {
+  font-size: 0.76rem;
+  color: var(--theme-text-muted, #64748b);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.aku-link-card-arrow-modern {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--theme-card-bg-subtle, #f1f5f9);
+  color: var(--theme-text-muted, #64748b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+}
+
+.aku-link-card-modern:hover .aku-link-card-arrow-modern {
+  background: var(--theme-primary, #0369a1);
+  color: #ffffff;
+  border-color: var(--theme-primary, #0369a1);
+  transform: translateX(4px) scale(1.08);
+  box-shadow: 0 4px 10px var(--theme-shadow, rgba(3, 105, 161, 0.3));
+}
+
+/* ---------------- Side Page View (Interactive Sub-View) ---------------- */
+.aku-subpage-card {
+  background: var(--glass-bg, #ffffff);
+  backdrop-filter: blur(var(--glass-blur, 16px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 16px));
+  border-radius: 18px;
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+  box-shadow: 0 16px 36px -10px var(--theme-shadow, rgba(0, 0, 0, 0.09));
+  padding: 28px;
+  margin-bottom: 30px;
+}
+
+.aku-subpage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  border-bottom: 1.5px solid var(--theme-card-border, #f1f5f9);
+  padding-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.aku-subpage-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aku-subpage-icon {
+  font-size: 1.6rem;
+}
+
+.aku-subpage-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--theme-primary, #0369a1);
+  margin: 0;
+}
+
+.aku-subpage-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.aku-btn-action {
+  background: var(--theme-primary, #0369a1);
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.aku-btn-action:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.aku-btn-action-outline {
+  background: transparent;
+  color: var(--theme-text-color, #1e293b);
+  border: 1px solid var(--theme-card-border, #cbd5e1);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.aku-btn-action-outline:hover {
+  background: var(--theme-card-bg-subtle, rgba(0, 0, 0, 0.05));
+  border-color: var(--theme-primary, #0369a1);
+}
+
+/* Filters bar */
+.aku-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  background: var(--theme-card-bg-subtle, #f8fafc);
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+}
+
+.aku-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--theme-text-color, #334155);
+}
+
+.aku-filter-select,
+.aku-filter-input {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--theme-card-border, #cbd5e1);
+  background: var(--theme-card-bg, #ffffff);
+  color: var(--theme-text-color, #1e293b);
+  font-size: 0.84rem;
+  outline: none;
+}
+
+.aku-filter-select:focus,
+.aku-filter-input:focus {
+  border-color: var(--theme-primary, #0369a1);
+}
+
+/* Data Table */
+.aku-table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+}
+
+.aku-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  text-align: left;
+}
+
+.aku-data-table th {
+  background: var(--theme-card-bg-subtle, #f1f5f9);
+  color: var(--theme-text-color, #334155);
+  font-weight: 800;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--theme-card-border, #cbd5e1);
+  white-space: nowrap;
+}
+
+.aku-data-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--theme-card-border, #f1f5f9);
+  color: var(--theme-text-color, #1e293b);
+  white-space: nowrap;
+}
+
+.aku-data-table tr:hover {
+  background: var(--theme-card-bg-subtle, rgba(3, 105, 161, 0.03));
+}
+
+.aku-badge-status {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.aku-badge-success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+.aku-badge-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+}
+
+.aku-badge-info {
+  background: rgba(3, 105, 161, 0.15);
+  color: #0284c7;
+}
+
+/* ---------------- Ticket Modal ---------------- */
+.aku-ticket-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.aku-ticket-modal {
+  background: var(--theme-card-bg, #ffffff);
+  border-radius: 16px;
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  max-width: 520px;
+  width: 100%;
+  overflow: hidden;
+  animation: modalPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.aku-ticket-modal-header {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: #ffffff;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aku-ticket-modal-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aku-ticket-modal-close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.aku-ticket-modal-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aku-ticket-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aku-ticket-field label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--theme-text-color, #334155);
+}
+
+.aku-ticket-input,
+.aku-ticket-select,
+.aku-ticket-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--theme-card-border, #cbd5e1);
+  background: var(--theme-card-bg-subtle, #f8fafc);
+  color: var(--theme-text-color, #1e293b);
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.aku-ticket-input:focus,
+.aku-ticket-select:focus,
+.aku-ticket-textarea:focus {
+  border-color: #d97706;
+  background: var(--theme-card-bg, #ffffff);
+}
+
+.aku-ticket-modal-actions {
+    display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ---------------- Sidebar Theme Studio Section ---------------- */
+.aku-sidebar-divider {
+  height: 1px;
+  background: var(--theme-card-border, #e2e8f0);
+  margin: 12px 10px;
+}
+
+.aku-sidebar-theme-studio-section {
+  padding: 4px 6px;
+}
+
+.aku-sidebar-theme-studio-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, rgba(19, 132, 150, 0.08) 0%, rgba(32, 178, 170, 0.08) 100%);
+  border: 1.5px solid var(--theme-card-border, #bae6fd);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.aku-sidebar-theme-studio-btn:hover {
+  background: linear-gradient(135deg, rgba(19, 132, 150, 0.16) 0%, rgba(32, 178, 170, 0.16) 100%);
+  border-color: var(--theme-primary, #138496);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--theme-shadow, rgba(19, 132, 150, 0.15));
+}
+
+.aku-sidebar-theme-studio-btn.active {
+  background: linear-gradient(135deg, var(--theme-primary, #138496) 0%, var(--theme-secondary, #20b2aa) 100%);
+  border-color: transparent;
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px var(--theme-shadow, rgba(19, 132, 150, 0.35));
+}
+
+.aku-sidebar-theme-studio-btn.active .aku-sidebar-theme-heading,
+.aku-sidebar-theme-studio-btn.active .aku-sidebar-theme-sub,
+.aku-sidebar-theme-studio-btn.active .aku-sidebar-theme-arrow {
+  color: #ffffff !important;
+}
+
+.aku-sidebar-theme-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aku-sidebar-theme-icon {
+  font-size: 1.4rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.aku-sidebar-theme-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.aku-sidebar-theme-heading {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--theme-primary, #0f172a);
+  letter-spacing: 0.3px;
+}
+
+.aku-sidebar-theme-sub {
+  font-size: 0.72rem;
+  color: var(--theme-text-muted, #64748b);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.aku-sidebar-theme-arrow {
+  color: var(--theme-primary, #0369a1);
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.aku-sidebar-theme-studio-btn:hover .aku-sidebar-theme-arrow {
+  transform: translateX(4px);
+}
+
+/* ---------------- In-Page Theme Studio View ---------------- */
+.aku-theme-studio-page {
+  background: var(--glass-bg, #ffffff);
+  backdrop-filter: blur(var(--glass-blur, 16px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 16px));
+  border-radius: 18px;
+  border: 1px solid var(--theme-card-border, #e2e8f0);
+  box-shadow: 0 16px 36px -10px var(--theme-shadow, rgba(0, 0, 0, 0.09));
+  padding: 32px 30px;
+  margin-bottom: 30px;
+}
+
+.aku-theme-studio-header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--theme-card-border, #f1f5f9);
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.aku-theme-studio-title-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.aku-theme-studio-icon-large {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.aku-theme-studio-main-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--theme-primary, #0369a1);
+  margin: 0 0 4px 0;
+  letter-spacing: 0.3px;
+}
+
+.aku-theme-studio-tagline {
+  font-size: 0.9rem;
+  color: var(--theme-text-muted, #64748b);
+  font-weight: 600;
+  margin: 0;
+}
+
+.aku-theme-section-block {
+  margin-bottom: 30px;
+}
+
+.aku-theme-block-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.94rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--theme-text-color, #1e293b);
+  margin-bottom: 14px;
+}
+
+/* Display Mode Buttons */
+.aku-theme-mode-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 580px;
+}
+
+.aku-theme-mode-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid var(--theme-card-border, #e2e8f0);
+  background: var(--theme-card-bg-subtle, #f8fafc);
+  color: var(--theme-text-color, #1e293b);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aku-theme-mode-card:hover {
+  border-color: var(--theme-primary, #0369a1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.aku-theme-mode-card.active {
+  background: linear-gradient(135deg, var(--theme-primary, #0369a1) 0%, var(--theme-secondary, #20b2aa) 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 22px var(--theme-shadow, rgba(3, 105, 161, 0.35));
+}
+
+/* 12 Color Palettes In-Page Grid */
+.aku-theme-palettes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.aku-theme-palette-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: var(--theme-card-bg-subtle, #f8fafc);
+  border: 2px solid var(--theme-card-border, #e2e8f0);
+  border-radius: 14px;
+  padding: 18px 12px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.aku-theme-palette-item:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #94a3b8;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.aku-theme-palette-item.selected {
+  border-color: var(--theme-primary, #138496);
+  background: var(--theme-highlight-bg, rgba(19, 132, 150, 0.08));
+  box-shadow: 0 0 0 3px rgba(19, 132, 150, 0.25), 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.aku-theme-circle-swatch {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  transition: transform 0.25s ease;
+}
+
+.aku-theme-palette-item:hover .aku-theme-circle-swatch {
+  transform: scale(1.1);
+}
+
+.aku-theme-palette-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--theme-text-color, #334155);
+  text-align: center;
+}
+
+/* ---------------- Responsive Styles ---------------- */
+@media (max-width: 1024px) {
+  .aku-ugmain-nav-items {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .aku-ugmain-sidebar {
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    box-shadow: 10px 0 25px rgba(0, 0, 0, 0.25);
+  }
+
+  .aku-college-pill {
+    display: none;
+  }
+
+  .aku-tech-support-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aku-ugmain-content {
+    padding: 16px 14px;
+  }
+
+  .aku-links-grid {
+    grid-template-columns: 1fr;
+  }
+}

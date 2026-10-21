@@ -1,0 +1,132 @@
+/* ========================================================
+   Dynamic Ambient Background & Floating Luminous Mesh
+   Powers authentic translucent refraction in Glassmorphism UI
+   ======================================================== */
+
+.ambient-background-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: var(--theme-bg-page);
+  transition: background-color 0.4s ease;
+}
+
+/* Subtle modern mesh grid overlay */
+.ambient-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.05) 1.2px, transparent 0);
+  background-size: 28px 28px;
+  opacity: 0.7;
+}
+
+.dark .ambient-grid-overlay {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1.2px, transparent 0);
+  opacity: 0.85;
+}
+
+/* Glowing luminous ambient orbs */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  -webkit-filter: blur(90px);
+  opacity: 0.42;
+  will-change: transform;
+}
+
+.dark .ambient-orb {
+  opacity: 0.32;
+  filter: blur(105px);
+  -webkit-filter: blur(105px);
+}
+
+.orb-1 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, var(--theme-primary) 0%, rgba(var(--theme-primary-rgb), 0.2) 55%, transparent 70%);
+  top: -120px;
+  left: -100px;
+  animation: orbDrift1 22s infinite ease-in-out alternate;
+}
+
+.orb-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--theme-secondary) 0%, rgba(var(--theme-secondary-rgb), 0.25) 55%, transparent 70%);
+  bottom: -160px;
+  right: -120px;
+  animation: orbDrift2 26s infinite ease-in-out alternate;
+}
+
+.orb-3 {
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, var(--theme-accent) 0%, rgba(var(--theme-accent-rgb, 132, 204, 22), 0.2) 55%, transparent 70%);
+  top: 35%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  animation: orbDrift3 28s infinite ease-in-out alternate;
+}
+
+.orb-4 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, var(--theme-primary) 0%, rgba(var(--theme-secondary-rgb), 0.18) 60%, transparent 70%);
+  top: -80px;
+  right: 15%;
+  animation: orbDrift4 24s infinite ease-in-out alternate;
+}
+
+/* Subtle Aurora wave streak across canvas */
+.ambient-aurora {
+  position: absolute;
+  top: 15%;
+  left: -20%;
+  right: -20%;
+  height: 380px;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(var(--theme-primary-rgb), 0.12) 30%,
+    rgba(var(--theme-secondary-rgb), 0.16) 60%,
+    transparent 100%
+  );
+  filter: blur(80px);
+  -webkit-filter: blur(80px);
+  transform: rotate(-8deg);
+  opacity: 0.6;
+  animation: auroraShift 18s infinite ease-in-out alternate;
+}
+
+.dark .ambient-aurora {
+  opacity: 0.25;
+}
+
+@keyframes orbDrift1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(130px, 90px) scale(1.15); }
+  100% { transform: translate(50px, 150px) scale(0.95); }
+}
+
+@keyframes orbDrift2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-150px, -70px) scale(1.12); }
+  100% { transform: translate(-70px, -130px) scale(0.94); }
+}
+
+@keyframes orbDrift3 {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-42%, -38%) scale(1.22); }
+  100% { transform: translate(-56%, -62%) scale(0.88); }
+}
+
+@keyframes orbDrift4 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-100px, 80px) scale(1.1); }
+  100% { transform: translate(-40px, 140px) scale(0.92); }
+}
