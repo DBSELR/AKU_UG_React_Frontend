@@ -63,7 +63,7 @@
 }
 
 /* ========================================================
-   12 COLOR THEME PALETTES (data-theme)
+   6 COLOR THEME PALETTES (data-theme)
    ======================================================== */
 
 /* 1. Teal (Default AKU) */
@@ -81,145 +81,67 @@
 
 /* 2. Ocean Blue */
 [data-theme="blue"] {
-  --theme-primary: #0284c7;
-  --theme-primary-rgb: 2, 132, 199;
-  --theme-secondary: #38bdf8;
-  --theme-secondary-rgb: 56, 189, 248;
-  --theme-accent: #06b6d4;
-  --theme-bg-page: #e0f2fe;
-  --theme-shadow: rgba(2, 132, 199, 0.32);
-  --theme-shadow-lg: rgba(2, 132, 199, 0.48);
-  --highlight-text: #0369a1;
+  --theme-primary: #075985;
+  --theme-primary-rgb: 7, 89, 133;
+  --theme-secondary: #0e7490;
+  --theme-secondary-rgb: 14, 116, 144;
+  --theme-accent: #67e8f9;
+  --theme-bg-page: #ecfeff;
+  --theme-shadow: rgba(7, 89, 133, 0.32);
+  --theme-shadow-lg: rgba(7, 89, 133, 0.48);
+  --highlight-text: #155e75;
 }
 
 /* 3. Midnight Navy */
 [data-theme="midnight"] {
-  --theme-primary: #1e3a8a;
-  --theme-primary-rgb: 30, 58, 138;
-  --theme-secondary: #3b82f6;
-  --theme-secondary-rgb: 59, 130, 246;
-  --theme-accent: #60a5fa;
-  --theme-bg-page: #dbeafe;
-  --theme-shadow: rgba(30, 58, 138, 0.35);
-  --theme-shadow-lg: rgba(30, 58, 138, 0.52);
-  --highlight-text: #1d4ed8;
+  --theme-primary: #111827;
+  --theme-primary-rgb: 17, 24, 39;
+  --theme-secondary: #b45309;
+  --theme-secondary-rgb: 180, 83, 9;
+  --theme-accent: #fbbf24;
+  --theme-bg-page: #f3f4f6;
+  --theme-shadow: rgba(17, 24, 39, 0.32);
+  --theme-shadow-lg: rgba(17, 24, 39, 0.48);
+  --highlight-text: #92400e;
 }
 
-/* 4. Emerald Green */
-[data-theme="emerald"] {
-  --theme-primary: #059669;
-  --theme-primary-rgb: 5, 150, 105;
-  --theme-secondary: #10b981;
-  --theme-secondary-rgb: 16, 185, 129;
-  --theme-accent: #84cc16;
-  --theme-bg-page: #dcfce7;
-  --theme-shadow: rgba(5, 150, 105, 0.32);
-  --theme-shadow-lg: rgba(5, 150, 105, 0.48);
-  --highlight-text: #047857;
-}
-
-/* 5. Imperial Violet */
-[data-theme="violet"] {
+/* 4. Lavender Mist */
+[data-theme="lavender"] {
   --theme-primary: #7c3aed;
   --theme-primary-rgb: 124, 58, 237;
-  --theme-secondary: #a855f7;
-  --theme-secondary-rgb: 168, 85, 247;
-  --theme-accent: #c084fc;
-  --theme-bg-page: #f3e8ff;
+  --theme-secondary: #be185d;
+  --theme-secondary-rgb: 190, 24, 93;
+  --theme-accent: #f9a8d4;
+  --theme-bg-page: #faf5ff;
   --theme-shadow: rgba(124, 58, 237, 0.32);
   --theme-shadow-lg: rgba(124, 58, 237, 0.48);
-  --highlight-text: #6d28d9;
+  --highlight-text: #7e22ce;
 }
 
-/* 6. Royal Crimson */
-[data-theme="crimson"] {
-  --theme-primary: #e11d48;
-  --theme-primary-rgb: 225, 29, 72;
-  --theme-secondary: #f43f5e;
-  --theme-secondary-rgb: 244, 63, 94;
-  --theme-accent: #fb7185;
-  --theme-bg-page: #ffe4e6;
-  --theme-shadow: rgba(225, 29, 72, 0.32);
-  --theme-shadow-lg: rgba(225, 29, 72, 0.48);
-  --highlight-text: #be123c;
-}
-
-/* 7. DBASE Orange */
-[data-theme="dbase"] {
-  --theme-primary: #ea580c;
-  --theme-primary-rgb: 234, 88, 12;
-  --theme-secondary: #f97316;
-  --theme-secondary-rgb: 249, 115, 22;
-  --theme-accent: #fbbf24;
-  --theme-bg-page: #ffedd5;
-  --theme-shadow: rgba(234, 88, 12, 0.32);
-  --theme-shadow-lg: rgba(234, 88, 12, 0.48);
-  --highlight-text: #c2410c;
-}
-
-/* 8. Solar Amber */
-[data-theme="amber"] {
-  --theme-primary: #d97706;
-  --theme-primary-rgb: 217, 119, 6;
-  --theme-secondary: #f59e0b;
-  --theme-secondary-rgb: 245, 158, 11;
-  --theme-accent: #fde047;
-  --theme-bg-page: #fef3c7;
-  --theme-shadow: rgba(217, 119, 6, 0.32);
-  --theme-shadow-lg: rgba(217, 119, 6, 0.48);
-  --highlight-text: #b45309;
-}
-
-/* 9. Vibrant Pink */
-[data-theme="pink"] {
-  --theme-primary: #db2777;
-  --theme-primary-rgb: 219, 39, 119;
-  --theme-secondary: #ec4899;
-  --theme-secondary-rgb: 236, 72, 153;
-  --theme-accent: #f472b6;
-  --theme-bg-page: #fce7f3;
-  --theme-shadow: rgba(219, 39, 119, 0.32);
-  --theme-shadow-lg: rgba(219, 39, 119, 0.48);
-  --highlight-text: #be185d;
-}
-
-/* 10. Mocha Bronze */
-[data-theme="chocolate"] {
-  --theme-primary: #854d0e;
-  --theme-primary-rgb: 133, 77, 14;
-  --theme-secondary: #a16207;
-  --theme-secondary-rgb: 161, 98, 7;
-  --theme-accent: #facc15;
-  --theme-bg-page: #fef9c3;
-  --theme-shadow: rgba(133, 77, 14, 0.32);
-  --theme-shadow-lg: rgba(133, 77, 14, 0.48);
-  --highlight-text: #713f12;
-}
-
-/* 11. Lavender Mist */
-[data-theme="lavender"] {
-  --theme-primary: #6366f1;
-  --theme-primary-rgb: 99, 102, 241;
-  --theme-secondary: #818cf8;
-  --theme-secondary-rgb: 129, 140, 248;
-  --theme-accent: #a5b4fc;
-  --theme-bg-page: #e0e7ff;
-  --theme-shadow: rgba(99, 102, 241, 0.32);
-  --theme-shadow-lg: rgba(99, 102, 241, 0.48);
-  --highlight-text: #4f46e5;
-}
-
-/* 12. Graphite Coal */
+/* 5. Graphite Coal */
 [data-theme="coal"] {
-  --theme-primary: #475569;
-  --theme-primary-rgb: 71, 85, 105;
+  --theme-primary: #1f2937;
+  --theme-primary-rgb: 31, 41, 55;
   --theme-secondary: #64748b;
   --theme-secondary-rgb: 100, 116, 139;
-  --theme-accent: #94a3b8;
-  --theme-bg-page: #e2e8f0;
-  --theme-shadow: rgba(71, 85, 105, 0.32);
-  --theme-shadow-lg: rgba(71, 85, 105, 0.48);
+  --theme-accent: #cbd5e1;
+  --theme-bg-page: #f1f5f9;
+  --theme-shadow: rgba(31, 41, 55, 0.32);
+  --theme-shadow-lg: rgba(31, 41, 55, 0.48);
   --highlight-text: #334155;
+}
+
+/* 6. Royal Blue — crisp university blue with white surfaces */
+[data-theme="royal"] {
+  --theme-primary: #1d4ed8;
+  --theme-primary-rgb: 29, 78, 216;
+  --theme-secondary: #1e40af;
+  --theme-secondary-rgb: 30, 64, 175;
+  --theme-accent: #bfdbfe;
+  --theme-bg-page: #eff6ff;
+  --theme-shadow: rgba(29, 78, 216, 0.32);
+  --theme-shadow-lg: rgba(29, 78, 216, 0.48);
+  --highlight-text: #1e40af;
 }
 
 /* ========================================================
@@ -270,80 +192,38 @@
 }
 
 .dark[data-theme="blue"] {
-  --theme-bg-page: #031224;
-  --theme-card-bg: rgba(7, 30, 58, 0.76);
-  --glass-bg: rgba(7, 30, 58, 0.74);
-  --glass-border: rgba(56, 189, 248, 0.22);
+  --theme-bg-page: #061923;
+  --theme-card-bg: rgba(8, 40, 58, 0.76);
+  --glass-bg: rgba(8, 40, 58, 0.74);
+  --glass-border: rgba(34, 211, 238, 0.22);
 }
 
 .dark[data-theme="midnight"] {
-  --theme-bg-page: #040918;
-  --theme-card-bg: rgba(12, 22, 50, 0.76);
-  --glass-bg: rgba(12, 22, 50, 0.74);
-  --glass-border: rgba(96, 165, 250, 0.22);
-}
-
-.dark[data-theme="emerald"] {
-  --theme-bg-page: #03160e;
-  --theme-card-bg: rgba(6, 34, 22, 0.76);
-  --glass-bg: rgba(6, 34, 22, 0.74);
-  --glass-border: rgba(16, 185, 129, 0.22);
-}
-
-.dark[data-theme="violet"] {
-  --theme-bg-page: #0e061e;
-  --theme-card-bg: rgba(28, 12, 56, 0.76);
-  --glass-bg: rgba(28, 12, 56, 0.74);
-  --glass-border: rgba(168, 85, 247, 0.22);
-}
-
-.dark[data-theme="crimson"] {
-  --theme-bg-page: #190409;
-  --theme-card-bg: rgba(46, 8, 18, 0.76);
-  --glass-bg: rgba(46, 8, 18, 0.74);
-  --glass-border: rgba(244, 63, 94, 0.22);
-}
-
-.dark[data-theme="dbase"] {
-  --theme-bg-page: #1a0a03;
-  --theme-card-bg: rgba(48, 18, 6, 0.76);
-  --glass-bg: rgba(48, 18, 6, 0.74);
-  --glass-border: rgba(249, 115, 22, 0.22);
-}
-
-.dark[data-theme="amber"] {
-  --theme-bg-page: #180d02;
-  --theme-card-bg: rgba(45, 24, 4, 0.76);
-  --glass-bg: rgba(45, 24, 4, 0.74);
-  --glass-border: rgba(245, 158, 11, 0.22);
-}
-
-.dark[data-theme="pink"] {
-  --theme-bg-page: #190412;
-  --theme-card-bg: rgba(46, 10, 32, 0.76);
-  --glass-bg: rgba(46, 10, 32, 0.74);
-  --glass-border: rgba(236, 72, 153, 0.22);
-}
-
-.dark[data-theme="chocolate"] {
-  --theme-bg-page: #120902;
-  --theme-card-bg: rgba(36, 16, 4, 0.76);
-  --glass-bg: rgba(36, 16, 4, 0.74);
-  --glass-border: rgba(202, 138, 4, 0.22);
+  --theme-bg-page: #080d18;
+  --theme-card-bg: rgba(24, 27, 37, 0.8);
+  --glass-bg: rgba(24, 27, 37, 0.76);
+  --glass-border: rgba(251, 191, 36, 0.2);
 }
 
 .dark[data-theme="lavender"] {
-  --theme-bg-page: #08091f;
-  --theme-card-bg: rgba(20, 24, 62, 0.76);
-  --glass-bg: rgba(20, 24, 62, 0.74);
-  --glass-border: rgba(129, 140, 248, 0.22);
+  --theme-bg-page: #160a25;
+  --theme-card-bg: rgba(37, 17, 53, 0.78);
+  --glass-bg: rgba(37, 17, 53, 0.74);
+  --glass-border: rgba(249, 168, 212, 0.22);
 }
 
 .dark[data-theme="coal"] {
-  --theme-bg-page: #0b101b;
-  --theme-card-bg: rgba(24, 33, 49, 0.76);
-  --glass-bg: rgba(24, 33, 49, 0.74);
+  --theme-bg-page: #090e16;
+  --theme-card-bg: rgba(24, 32, 44, 0.78);
+  --glass-bg: rgba(24, 32, 44, 0.74);
   --glass-border: rgba(148, 163, 184, 0.22);
+}
+
+.dark[data-theme="royal"] {
+  --theme-bg-page: #071229;
+  --theme-card-bg: rgba(13, 30, 65, 0.78);
+  --glass-bg: rgba(13, 30, 65, 0.74);
+  --glass-border: rgba(191, 219, 254, 0.22);
 }
 
 /* ========================================================

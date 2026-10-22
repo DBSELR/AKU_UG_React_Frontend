@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IonPage, IonContent } from '@ionic/react';
-import { useTheme } from '../../theme/ThemeContext';
 import {
   collegeLogin,
   fetchCollegeMenu,
@@ -12,6 +11,8 @@ import {
 } from '../../services/akuApi';
 import './Login.css';
 import '../Home.css';
+import UniversityHeader from '../../components/UniversityHeader';
+import UniversityFooter from '../../components/UniversityFooter';
 
 const generateCaptchaText = (): string => {
   const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
@@ -24,11 +25,9 @@ const generateCaptchaText = (): string => {
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  const { isDark, toggleDarkMode, setShowThemeModal } = useTheme();
-
   // Form states
-  const [username, setUsername] = useState('023');
-  const [password, setPassword] = useState('023');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [captchaText, setCaptchaText] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -37,10 +36,6 @@ const Login: React.FC = () => {
   const [liveNotifications, setLiveNotifications] = useState<AdminNotification[]>([]);
   const [loadingNotifs, setLoadingNotifs] = useState(false);
 
-  // Header states
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const dropdownRef = useRef<HTMLLIElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Draw captcha on canvas
@@ -130,19 +125,6 @@ const Login: React.FC = () => {
     };
   }, []);
 
-  // Close dropdown on outside click
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setAboutDropdownOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatusMessage(null);
@@ -205,229 +187,71 @@ const Login: React.FC = () => {
     }
   };
 
-  const handleFillOfficialCollege = () => {
-    setUsername('023');
-    setPassword('023');
-    setVerificationCode(captchaText);
-    setStatusMessage({
-      type: 'success',
-      text: 'Official credentials loaded: College 023 (GOVT DEGREE COLLEGE, CUMBUM).'
-    });
-  };
-
   return (
     <IonPage>
       <IonContent fullscreen className="aku-ion-content">
         <div className="aku-login-page">
-          {/* Header */}
-          <header className="aku-header">
-            {/* Left University Logo Block */}
-            <div className="aku-brand-container">
-              <div
-                className="aku-brand"
-                onClick={() => navigate('/home')}
-                title="Go to Home"
-              >
-                <img
-                  src="/assets/logo.png"
-                  alt="Andhra Kesari University"
-                  className="aku-brand-logo"
-                />
-              </div>
-            </div>
-
-            {/* Mobile Hamburger Button */}
-            <button
-              className="aku-mobile-toggle"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle navigation"
-            >
-              ☰
-            </button>
-
-            {/* Desktop Navbar */}
-            <nav className="aku-navbar">
-              <ul className="aku-nav-list">
-                {/* Working hours */}
-                <li className="aku-nav-item">
-                  <a className="aku-nav-link aku-nav-timing" title="Operating Hours">
-                    <span className="aku-clock-icon">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
-                    </span>
-                    <span>Mon-Sat : 10:00 AM to 5:30 PM</span>
-                  </a>
-                </li>
-
-                {/* Home */}
-                <li className="aku-nav-item">
-                  <button
-                    type="button"
-                    onClick={() => navigate('/home')}
-                    className="aku-nav-link"
-                    style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
-                  >
-                    Home
-                  </button>
-                </li>
-
-                {/* About Us Dropdown */}
-                <li className="aku-nav-item aku-dropdown" ref={dropdownRef}>
-                  <button
-                    type="button"
-                    className="aku-nav-link aku-dropdown-toggle"
-                    onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
-                    aria-expanded={aboutDropdownOpen}
-                  >
-                    <span>About Us</span>
-                    <span className={`aku-dropdown-arrow ${aboutDropdownOpen ? 'open' : ''}`}>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="6 9 12 15 18 9" />
-                      </svg>
-                    </span>
-                  </button>
-
-                  {aboutDropdownOpen && (
-                    <div className="aku-dropdown-menu">
-                      <button
-                        type="button"
-                        className="aku-dropdown-item"
-                        onClick={() => { setAboutDropdownOpen(false); alert('About Andhra Kesari University'); }}
-                      >
-                        About Us
-                      </button>
-                      <button
-                        type="button"
-                        className="aku-dropdown-item"
-                        onClick={() => { setAboutDropdownOpen(false); alert('Contact Support: 9948708389'); }}
-                      >
-                        Contact Us
-                      </button>
-                      <button
-                        type="button"
-                        className="aku-dropdown-item"
-                        onClick={() => { setAboutDropdownOpen(false); alert('Refund & Cancellation Policy'); }}
-                      >
-                        Refund &amp; Cancellation
-                      </button>
-                      <button
-                        type="button"
-                        className="aku-dropdown-item"
-                        onClick={() => { setAboutDropdownOpen(false); alert('Terms and Conditions & Privacy Policy'); }}
-                      >
-                        Term and Conditions &amp; Privacy Policy
-                      </button>
-                    </div>
-                  )}
-                </li>
-
-                {/* Challan Payment */}
-                <li className="aku-nav-item">
-                  <button
-                    type="button"
-                    onClick={() => alert('Online Challan Payment Gateway')}
-                    className="aku-nav-link aku-challan-link"
-                    style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
-                    title="Pay Challan Online"
-                  >
-                    <span>CHALLAN PAYMENT</span>
-                    <img
-                      src="/assets/anew.gif"
-                      alt="New"
-                      className="aku-new-badge"
-                    />
-                  </button>
-                </li>
-
-                {/* Quick Theme Switcher in Navbar */}
-                <li className="aku-nav-item aku-header-theme-group">
-                  <button
-                    type="button"
-                    className="aku-theme-btn"
-                    onClick={() => setShowThemeModal(true)}
-                    title="Open Theme Studio (Change Theme Color)"
-                  >
-                    <span className="aku-theme-dot"></span>
-                    <span>Themes</span>
-                  </button>
-                  <button
-                    type="button"
-                    className="aku-theme-btn"
-                    onClick={toggleDarkMode}
-                    title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                  >
-                    <span>{isDark ? '☀️' : '🌙'}</span>
-                  </button>
-                </li>
-              </ul>
-            </nav>
-          </header>
-
-          {/* Mobile Menu Panel */}
-          <div className={`aku-mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-            <div className="aku-nav-link aku-nav-timing">
-              <span>🕒 Mon-Sat : 10:00 AM to 5:30 PM</span>
-            </div>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate('/home');
-              }}
-              className="aku-nav-link"
-              style={{ textAlign: 'left', background: 'transparent', border: 'none' }}
-            >
-              Home
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                alert('About Andhra Kesari University');
-              }}
-              className="aku-nav-link"
-              style={{ textAlign: 'left', background: 'transparent', border: 'none' }}
-            >
-              About Us
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                alert('Contact Support: 9948708389');
-              }}
-              className="aku-nav-link"
-              style={{ textAlign: 'left', background: 'transparent', border: 'none' }}
-            >
-              Contact Us
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                alert('Online Challan Payment Gateway');
-              }}
-              className="aku-nav-link aku-challan-link"
-              style={{ textAlign: 'left', background: 'transparent', border: 'none' }}
-            >
-              <span>CHALLAN PAYMENT</span>
-              <img src="/assets/anew.gif" alt="New" className="aku-new-badge" />
-            </button>
-            <button
-              type="button"
-              className="aku-nav-link"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                setShowThemeModal(true);
-              }}
-              style={{ textAlign: 'left', background: 'transparent', border: 'none', color: '#ffffff' }}
-            >
-              🎨 Theme Studio
-            </button>
-          </div>
+          <UniversityHeader />
 
           {/* Main Area */}
           <main className="aku-login-main">
             <div className="aku-login-container">
-              {/* Left Column: UG College Login Card */}
+              <section className="aku-login-hero" aria-labelledby="aku-welcome-title">
+                <div className="aku-login-hero-copy">
+                  <p className="aku-login-eyebrow">LEARN <span>•</span> GROW <span>•</span> ACHIEVE</p>
+                  <h2 id="aku-welcome-title">Welcome to <strong>Andhra Kesari University</strong></h2>
+                  <p className="aku-login-hero-portal">UG College Portal</p>
+                  <p className="aku-login-hero-description">
+                    Your gateway to examination services, academic updates and college support.
+                  </p>
+                </div>
+
+                <div className="aku-campus-art" aria-hidden="true">
+                  <div className="aku-campus-sun" />
+                  <div className="aku-campus-hill aku-campus-hill-back" />
+                  <div className="aku-campus-hill aku-campus-hill-front" />
+                  <div className="aku-campus-tree aku-campus-tree-one"><i /><b /></div>
+                  <div className="aku-campus-tree aku-campus-tree-two"><i /><b /></div>
+                  <div className="aku-campus-building">
+                    <div className="aku-campus-roof" />
+                    <div className="aku-campus-pediment"><span>AKU</span></div>
+                    <div className="aku-campus-columns">
+                      <i /><i /><i /><i /><i />
+                    </div>
+                    <div className="aku-campus-steps" />
+                  </div>
+                  <div className="aku-campus-path" />
+                  <div className="aku-campus-student aku-campus-student-one"><i /><b /></div>
+                  <div className="aku-campus-student aku-campus-student-two"><i /><b /></div>
+                </div>
+
+                <div className="aku-login-benefits">
+                  <div className="aku-login-benefit">
+                    <span className="aku-benefit-icon" aria-hidden="true">🎓</span>
+                    <strong>Student Services</strong>
+                    <small>Enrollment, exams and results</small>
+                  </div>
+                  <div className="aku-login-benefit">
+                    <span className="aku-benefit-icon" aria-hidden="true">▤</span>
+                    <strong>Academic Updates</strong>
+                    <small>Notices, timetables, circulars</small>
+                  </div>
+                  <div className="aku-login-benefit">
+                    <span className="aku-benefit-icon" aria-hidden="true">♧</span>
+                    <strong>Student Support</strong>
+                    <small>Help and guidance</small>
+                  </div>
+                  <div className="aku-login-benefit">
+                    <span className="aku-benefit-icon" aria-hidden="true">✓</span>
+                    <strong>Secure &amp; Reliable</strong>
+                    <small>Your data, our priority</small>
+                  </div>
+                </div>
+                <p className="aku-login-hero-footnote">ANDHRA KESARI UNIVERSITY <span>•</span> ONGOLE</p>
+              </section>
+
+              <div className="aku-auth-column">
+              {/* College login panel */}
               <div className="aku-login-card">
                 <div className="aku-login-header">
                   <div className="aku-login-emblem-wrap">
@@ -437,26 +261,16 @@ const Login: React.FC = () => {
                       className="aku-login-emblem"
                     />
                   </div>
-                  <h1 className="aku-login-title">ANDHRA KESARI UNIVERSITY</h1>
+                  <div className="aku-login-card-heading">
+                    <p className="aku-login-university-name">ANDHRA KESARI UNIVERSITY</p>
+                    <h1 className="aku-login-title">UG College Portal</h1>
+                    <p className="aku-login-card-subtitle">Sign in with your college credentials</p>
+                  </div>
                   <div className="aku-login-badge">
-                    <span>🎓</span>
-                    <span>UG College Login</span>
+                    <span>College access</span>
                   </div>
                 </div>
-
-                <div className="aku-login-divider"></div>
-
-                {statusMessage && (
-                  <div
-                    className={`aku-status-banner ${
-                      statusMessage.type === 'error'
-                        ? 'aku-status-error'
-                        : 'aku-status-success'
-                    }`}
-                  >
-                    {statusMessage.text}
-                  </div>
-                )}
+ 
 
                 <form onSubmit={handleLoginSubmit} className="aku-form">
                   {/* Username Field */}
@@ -480,7 +294,7 @@ const Login: React.FC = () => {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
-                        autoFocus
+                        autoComplete="username"
                       />
                     </div>
                   </div>
@@ -506,6 +320,7 @@ const Login: React.FC = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        autoComplete="current-password"
                       />
                       <button
                         type="button"
@@ -542,12 +357,15 @@ const Login: React.FC = () => {
                           width="95"
                           height="36"
                           className="aku-captcha-canvas"
+                          role="img"
+                          aria-label="Verification code image"
                         />
                         <button
                           type="button"
                           className="aku-captcha-refresh"
                           onClick={refreshCaptcha}
                           title="Generate new Captcha"
+                          aria-label="Refresh verification code"
                         >
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                             <polyline points="23 4 23 10 17 10" />
@@ -560,7 +378,7 @@ const Login: React.FC = () => {
                         id="verificationCode"
                         type="text"
                         className="aku-input aku-captcha-input"
-                        placeholder="Enter Code"
+                        placeholder="Enter verification code"
                         value={verificationCode}
                         onChange={(e) => setVerificationCode(e.target.value)}
                         maxLength={6}
@@ -576,30 +394,14 @@ const Login: React.FC = () => {
                     className="aku-login-btn"
                     disabled={isLoading}
                   >
-                    <span>{isLoading ? 'Verifying...' : 'Login'}</span>
+                    <span>{isLoading ? 'Signing in...' : 'Login to portal'}</span>
                     <span style={{ fontSize: '1.2rem' }}>➔</span>
                   </button>
-
-                  {/* Quick Test College Login Option */}
-                  <button
-                    type="button"
-                    className="aku-btn-action-outline"
-                    onClick={handleFillOfficialCollege}
-                    disabled={isLoading}
-                    style={{
-                      width: '100%',
-                      marginTop: '8px',
-                      padding: '10px',
-                      justifyContent: 'center',
-                      fontSize: '0.86rem',
-                      fontWeight: 700,
-                      borderRadius: '8px'
-                    }}
-                    title="Directly fill Live Credentials (023 - GOVT DEGREE COLLEGE, CUMBUM)"
-                  >
-                    <span>⚡ Fill Official Credentials (023 / 023)</span>
-                  </button>
                 </form>
+                <div className="aku-login-card-note">
+                  <span aria-hidden="true">✓</span>
+                  For authorized UG college use
+                </div>
               </div>
 
               {/* Right Column: Notifications Card */}
@@ -738,35 +540,11 @@ const Login: React.FC = () => {
                   )}
                 </div>
               </div>
+              </div> 
             </div>
           </main>
 
-          {/* Footer */}
-          <footer className="aku-footer">
-            <p className="aku-footer-text">
-              Copyright{' '}
-              <a
-                href="https://akuprakasam.ac.in/"
-                target="_blank"
-                rel="noreferrer"
-                className="aku-footer-highlight"
-              >
-                &copy; 2023 Andhra Kesari University.
-              </a>{' '}
-              All rights reserved. Developed by{' '}
-              <a
-                href="http://dbasesolutions.in/"
-                target="_blank"
-                rel="noreferrer"
-                className="aku-footer-highlight"
-              >
-                D Base Solutions Private Limited.,
-              </a>
-              <span className="aku-support-contact">
-                &nbsp;&nbsp;&nbsp;&nbsp;FOR SUPPORT CONTACT : 9948708389
-              </span>
-            </p>
-          </footer>
+          <UniversityFooter />
 
           {/* Floating D Base Badge */}
           <a

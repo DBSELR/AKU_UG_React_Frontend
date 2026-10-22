@@ -1,0 +1,179 @@
+.aku-about-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: var(--theme-bg-page);
+  color: var(--theme-text-color);
+}
+
+.about-main {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(22px, 4vw, 54px) 22px;
+}
+
+.about-page-shell {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: clamp(16px, 2.2vw, 28px);
+  width: min(100%, 1420px);
+  margin: 0 auto;
+  min-height: 100%;
+}
+
+.about-page-header,
+.about-content-panel {
+  border: 1px solid var(--glass-border-highlight);
+  border-radius: 20px;
+  background: var(--glass-bg-card);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+}
+
+.about-page-header { padding: clamp(20px, 3vw, 34px) clamp(20px, 3vw, 40px) 0; }
+.about-page-heading { margin-bottom: 20px; }
+.about-page-label { margin: 0 0 8px; color: var(--theme-primary); font-size: .68rem; font-weight: 850; letter-spacing: .12em; }
+.about-page-heading h1 { margin: 0; color: var(--theme-text-color); font-size: clamp(1.35rem, 3vw, 2rem); letter-spacing: -.035em; }
+.about-page-heading > p:last-child { margin: 7px 0 0; color: var(--theme-text-muted); font-size: .9rem; line-height: 1.5; }
+.about-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(5px, 1vw, 12px);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--theme-primary-rgb), .35) transparent;
+}
+.about-tab {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 clamp(12px, 1.8vw, 24px);
+  border-radius: 10px 10px 0 0;
+  color: var(--theme-text-muted);
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .22s ease, background .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+.about-tab::after {
+  position: absolute;
+  right: 14px;
+  bottom: 0;
+  left: 14px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--theme-primary);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .25s cubic-bezier(.2, .75, .25, 1);
+}
+.about-tab:hover { transform: translateY(-2px); background: rgba(var(--theme-primary-rgb), .07); color: var(--theme-primary); }
+.about-tab:active { transform: translateY(0) scale(.97); }
+.about-tab:focus-visible { outline: 3px solid rgba(var(--theme-primary-rgb), .35); outline-offset: -3px; }
+.about-tab.active { background: rgba(var(--theme-primary-rgb), .08); color: var(--theme-primary); }
+.about-tab.active::after { transform: scaleX(1); }
+
+.about-content-panel {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: clamp(24px, 4vw, 48px);
+  animation: about-panel-enter .38s cubic-bezier(.2, .75, .25, 1) both;
+}
+@keyframes about-panel-enter {
+  from { opacity: 0; filter: blur(3px); transform: translate3d(0, 12px, 0) scale(.995); }
+  to { opacity: 1; filter: blur(0); transform: translate3d(0, 0, 0) scale(1); }
+}
+.about-eyebrow { margin: 0 0 10px; color: var(--theme-primary); font-size: .72rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+.about-content-panel h1 { margin: 0; color: var(--theme-text-color); font-size: clamp(1.8rem, 4vw, 2.7rem); letter-spacing: -.04em; line-height: 1.1; }
+.about-lead { max-width: 760px; margin: 15px 0 0; color: var(--theme-text-muted); font-size: 1rem; line-height: 1.7; }
+.about-info-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
+.about-info-card { min-width: 0; padding: 18px; border: 1px solid var(--glass-border); border-radius: 14px; background: var(--glass-bg-subtle); }
+.about-info-icon { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 12px; background: var(--theme-primary); color: #fff; font-size: 1.2rem; }
+.about-info-card h2,
+.about-policy-card h2 { margin: 14px 0 7px; color: var(--theme-text-color); font-size: 1.04rem; font-weight: 800; letter-spacing: -.01em; }
+.about-info-card p,
+.about-info-card small,
+.about-policy-card p { color: var(--theme-text-muted); font-size: .88rem; line-height: 1.65; }
+.about-info-card p { margin: 0; }
+.about-info-card p + p { margin-top: 8px; }
+.about-info-card address { color: var(--theme-text-muted); font-size: .88rem; font-style: normal; line-height: 1.75; }
+.about-info-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+.about-contact-links { display: grid; gap: 9px; margin-top: 12px; }
+.about-contact-link { display: flex; align-items: center; gap: 11px; min-width: 0; padding: 10px 11px; border: 1px solid var(--glass-border); border-radius: 11px; background: var(--glass-bg-subtle); color: var(--theme-primary); font-size: .8rem; font-weight: 750; text-decoration: none; overflow-wrap: anywhere; transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.about-contact-link svg { flex: 0 0 18px; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+.about-contact-link span { display: grid; gap: 2px; }
+.about-contact-link small { color: var(--theme-text-muted); font-size: .68rem; font-weight: 650; }
+.about-contact-link:hover { transform: translateY(-1px); border-color: rgba(var(--theme-primary-rgb), .4); background: rgba(var(--theme-primary-rgb), .07); }
+.about-contact-link:focus-visible { outline: 3px solid rgba(var(--theme-primary-rgb), .3); outline-offset: 2px; }
+.about-info-card small { display: block; margin-top: 7px; font-size: .76rem; }
+.about-info-card a { color: var(--theme-primary); font-weight: 700; }
+.about-policy-card { margin-top: 24px; padding: 20px; border: 1px solid var(--glass-border); border-radius: 14px; background: var(--glass-bg-subtle); }
+.about-policy-card h2:first-child { margin-top: 0; }
+.about-policy-card p { margin: 10px 0 0; }
+.about-policy-sections,
+.about-overview-sections { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 14px; margin-top: 24px; }
+.about-policy-sections .about-policy-card,
+.about-overview-sections .about-policy-card { height: 100%; box-sizing: border-box; margin: 0; }
+.about-policy-list { display: grid; gap: 11px; margin: 14px 0 0; padding-left: 1.35rem; color: var(--theme-text-muted); font-size: .88rem; line-height: 1.65; }
+.about-policy-list li { padding-left: 3px; }
+.about-policy-list li::marker { color: var(--theme-primary); font-weight: 800; }
+.about-policy-note { padding: 12px 14px; border-radius: 10px; background: rgba(var(--theme-primary-rgb), .08); }
+.about-policy-note strong { color: var(--theme-text-color); }
+.about-course-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; margin: 14px 0; padding-left: 1.15rem; color: var(--theme-text-muted); font-size: .86rem; line-height: 1.5; }
+.about-course-list li::marker { color: var(--theme-primary); }
+.about-policy-card p:last-child { margin-bottom: 0; }
+.about-action-link { display: inline-flex; align-items: center; gap: 9px; color: var(--theme-primary); font-size: .88rem; font-weight: 800; text-decoration: none; }
+.about-action-link:hover { text-decoration: underline; }
+.about-portal-callout { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 24px; padding: 18px 20px; border-radius: 14px; background: linear-gradient(120deg, rgba(var(--theme-primary-rgb), .12), rgba(var(--theme-secondary-rgb), .12)); }
+.about-portal-callout strong { color: var(--theme-primary); }
+.about-portal-callout p { margin: 5px 0 0; color: var(--theme-text-muted); font-size: .84rem; line-height: 1.5; }
+.about-portal-callout .about-action-link { flex: 0 0 auto; }
+
+@media (max-width: 760px) {
+  .aku-about-page .aku-header { flex-direction: row; min-height: 64px; padding: 0 14px; background: var(--theme-header-bg); }
+  .aku-about-page .aku-brand-container { flex: 1; min-width: 0; justify-content: flex-start; padding: 0; border: 0; }
+  .aku-about-page .aku-brand { gap: 9px; padding: 0; border: 0; background: transparent; box-shadow: none; }
+  .aku-about-page .aku-brand-logo { width: 42px; height: 42px; padding: 2px; border-radius: 50%; background: #fff; }
+  .aku-about-page .aku-brand-copy { color: #fff; }
+  .aku-about-page .aku-brand-copy strong { font-size: .68rem; }
+  .aku-about-page .aku-brand-copy small { font-size: .61rem; }
+  .aku-about-page .aku-mobile-toggle { display: grid; width: 40px; height: 40px; place-items: center; margin: 0; padding: 0; border: 0; background: transparent; color: #fff; }
+  .about-main { padding: 16px 12px 22px; }
+  .about-page-shell { gap: 12px; }
+  .about-page-header { padding: 18px 14px 0; border-radius: 15px; }
+  .about-page-heading { margin-bottom: 12px; }
+  .about-page-heading > p:last-child { font-size: .82rem; }
+  .about-tabs { margin: 0 -2px; gap: 3px; }
+  .about-tab { min-height: 44px; padding: 0 12px; font-size: .76rem; }
+  .about-tab::after { right: 8px; left: 8px; }
+  .about-content-panel { padding: 22px 17px; border-radius: 16px; }
+  .about-info-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .about-info-card { padding: 15px; }
+  .about-policy-sections,
+  .about-overview-sections { grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 18px; }
+  .about-policy-card { margin-top: 18px; padding: 16px; }
+  .about-policy-sections .about-policy-card,
+  .about-overview-sections .about-policy-card { height: auto; }
+  .about-policy-list { gap: 9px; font-size: .84rem; }
+  .about-course-list { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .about-lead { margin-top: 12px; font-size: .92rem; line-height: 1.65; }
+  .about-content-panel h1 { font-size: clamp(1.65rem, 8vw, 2.2rem); }
+  .about-portal-callout { align-items: flex-start; flex-direction: column; gap: 12px; padding: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-tab,
+  .about-tab::after,
+  .about-content-panel { animation: none; transition: none; }
+}

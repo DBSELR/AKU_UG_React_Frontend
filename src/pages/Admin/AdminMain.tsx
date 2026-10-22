@@ -142,6 +142,11 @@ export const AdminMain: React.FC = () => {
   const [liveNotifications, setLiveNotifications] = useState<AdminNotification[]>([]);
 
   useEffect(() => {
+    if (!adminUser) navigate('/admin-login', { replace: true });
+  }, [adminUser, navigate]);
+
+  useEffect(() => {
+    if (!adminUser) return;
     let isMounted = true;
     fetchAdminNotifications()
       .then((notifs) => {

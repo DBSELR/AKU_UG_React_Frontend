@@ -11,17 +11,11 @@ export interface ThemeColor {
 
 export const THEME_COLORS: ThemeColor[] = [
   { id: 'teal', name: 'AKU Teal', primary: '#0d9488', secondary: '#14b8a6', accent: '#84cc16', bgLight: '#e0f2fe' },
-  { id: 'blue', name: 'Ocean Blue', primary: '#0284c7', secondary: '#38bdf8', accent: '#06b6d4', bgLight: '#e0f2fe' },
-  { id: 'midnight', name: 'Midnight Navy', primary: '#1e3a8a', secondary: '#3b82f6', accent: '#60a5fa', bgLight: '#dbeafe' },
-  { id: 'emerald', name: 'Emerald Green', primary: '#059669', secondary: '#10b981', accent: '#84cc16', bgLight: '#dcfce7' },
-  { id: 'violet', name: 'Imperial Violet', primary: '#7c3aed', secondary: '#a855f7', accent: '#c084fc', bgLight: '#f3e8ff' },
-  { id: 'crimson', name: 'Royal Crimson', primary: '#e11d48', secondary: '#f43f5e', accent: '#fb7185', bgLight: '#ffe4e6' },
-  { id: 'dbase', name: 'DBASE Orange', primary: '#ea580c', secondary: '#f97316', accent: '#fbbf24', bgLight: '#ffedd5' },
-  { id: 'amber', name: 'Solar Amber', primary: '#d97706', secondary: '#f59e0b', accent: '#fde047', bgLight: '#fef3c7' },
-  { id: 'pink', name: 'Vibrant Pink', primary: '#db2777', secondary: '#ec4899', accent: '#f472b6', bgLight: '#fce7f3' },
-  { id: 'chocolate', name: 'Mocha Bronze', primary: '#854d0e', secondary: '#a16207', accent: '#facc15', bgLight: '#fef9c3' },
-  { id: 'lavender', name: 'Lavender Mist', primary: '#6366f1', secondary: '#818cf8', accent: '#a5b4fc', bgLight: '#e0e7ff' },
-  { id: 'coal', name: 'Graphite Coal', primary: '#475569', secondary: '#64748b', accent: '#94a3b8', bgLight: '#e2e8f0' },
+  { id: 'blue', name: 'Ocean Blue', primary: '#075985', secondary: '#0e7490', accent: '#67e8f9', bgLight: '#ecfeff' },
+  { id: 'midnight', name: 'Midnight Navy', primary: '#111827', secondary: '#b45309', accent: '#fbbf24', bgLight: '#f3f4f6' },
+  { id: 'lavender', name: 'Lavender Mist', primary: '#7c3aed', secondary: '#be185d', accent: '#f9a8d4', bgLight: '#faf5ff' },
+  { id: 'coal', name: 'Graphite Coal', primary: '#1f2937', secondary: '#64748b', accent: '#cbd5e1', bgLight: '#f1f5f9' },
+  { id: 'royal', name: 'Royal Blue', primary: '#1d4ed8', secondary: '#1e40af', accent: '#bfdbfe', bgLight: '#eff6ff' },
 ];
 
 const hexToRgb = (hex: string): string => {
@@ -51,7 +45,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [themeId, setThemeIdState] = useState<string>(() => {
-    return localStorage.getItem('aku_theme_color') || 'teal';
+    const savedTheme = localStorage.getItem('aku_theme_color');
+    return THEME_COLORS.some(theme => theme.id === savedTheme) ? savedTheme as string : 'teal';
   });
 
   const [isDark, setIsDark] = useState<boolean>(() => {
@@ -82,6 +77,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     document.documentElement.style.setProperty('--theme-secondary', selected.secondary);
     document.documentElement.style.setProperty('--theme-secondary-rgb', hexToRgb(selected.secondary));
     document.documentElement.style.setProperty('--theme-accent', selected.accent);
+    document.documentElement.style.setProperty('--theme-accent-rgb', hexToRgb(selected.accent));
     document.documentElement.style.setProperty('--ion-color-primary', selected.primary);
     document.documentElement.style.setProperty('--theme-color', selected.primary);
     const headerBg = `linear-gradient(135deg, rgba(${hexToRgb(selected.primary)}, 0.88) 0%, rgba(${hexToRgb(selected.secondary)}, 0.85) 100%)`;
@@ -97,7 +93,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, [themeId, isDark]);
 
   const setThemeId = (id: string) => {
-    setThemeIdState(id);
+    if (THEME_COLORS.some(theme => theme.id === id)) setThemeIdState(id);
   };
 
   const toggleDarkMode = () => {

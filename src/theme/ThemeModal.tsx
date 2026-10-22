@@ -1,113 +1,99 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTheme, THEME_COLORS } from './ThemeContext';
 import './ThemeModal.css';
 
 export const ThemeModal: React.FC = () => {
   const { themeId, setThemeId, isDark, toggleDarkMode, showThemeModal, setShowThemeModal } = useTheme();
+  const currentTheme = THEME_COLORS.find(theme => theme.id === themeId) || THEME_COLORS[0];
+
+  useEffect(() => {
+    if (!showThemeModal) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setShowThemeModal(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [showThemeModal, setShowThemeModal]);
 
   if (!showThemeModal) return null;
 
-  const currentTheme = THEME_COLORS.find(t => t.id === themeId) || THEME_COLORS[0];
-
   return (
     <div className="theme-modal-overlay" onClick={() => setShowThemeModal(false)}>
-      <div className="theme-modal-container" onClick={(e) => e.stopPropagation()}>
-        {/* Header */}
-        <div className="theme-modal-header">
+      <section
+        className="theme-modal-container"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="theme-modal-title"
+        onClick={event => event.stopPropagation()}
+      >
+        <header className="theme-modal-header">
           <div className="theme-header-title">
-            <span className="theme-header-icon">🎨</span>
+            <span className="theme-header-icon" aria-hidden="true">✦</span>
             <div>
-              <h3>Theme Studio</h3>
-              <p>Glassmorphic UI &amp; Multi-Palette Engine</p>
+              <h2 id="theme-modal-title">Choose your theme</h2>
+              <p>Personalize the university portal</p>
             </div>
           </div>
           <button
+            type="button"
             className="theme-modal-close-btn"
             onClick={() => setShowThemeModal(false)}
-            aria-label="Close Theme Studio"
-          >
-            &times;
-          </button>
-        </div>
+            aria-label="Close theme selector"
+          >×</button>
+        </header>
 
-        {/* Body */}
         <div className="theme-modal-body">
-          {/* Mode Switcher */}
-          <div className="theme-mode-section">
-            <span className="theme-section-label">Display Mode</span>
+          <section className="theme-mode-section" aria-labelledby="theme-mode-label">
+            <span className="theme-section-label" id="theme-mode-label">Appearance</span>
             <div className="theme-mode-toggle-group">
-              <button
-                type="button"
-                className={`theme-mode-btn ${!isDark ? 'active' : ''}`}
-                onClick={() => isDark && toggleDarkMode()}
-              >
-                <span className="theme-mode-icon">☀️</span>
-                <span className="theme-mode-text">Crisp Light Glass</span>
+              <button type="button" className={`theme-mode-btn ${!isDark ? 'active' : ''}`} aria-pressed={!isDark} onClick={() => isDark && toggleDarkMode()}>
+                <span className="theme-mode-icon" aria-hidden="true">☀</span>Light
               </button>
-              <button
-                type="button"
-                className={`theme-mode-btn ${isDark ? 'active' : ''}`}
-                onClick={() => !isDark && toggleDarkMode()}
-              >
-                <span className="theme-mode-icon">🌙</span>
-                <span className="theme-mode-text">Cosmic Dark Glass</span>
+              <button type="button" className={`theme-mode-btn ${isDark ? 'active' : ''}`} aria-pressed={isDark} onClick={() => !isDark && toggleDarkMode()}>
+                <span className="theme-mode-icon" aria-hidden="true">☾</span>Dark
               </button>
             </div>
-          </div>
+          </section>
 
-          {/* Color Palettes Grid */}
-          <div className="theme-palettes-section">
-            <span className="theme-section-label">Color Themes ({THEME_COLORS.length} Palettes)</span>
-            <div className="theme-color-grid">
-              {THEME_COLORS.map((t) => {
-                const isSelected = themeId === t.id;
+          <section className="theme-palettes-section" aria-labelledby="theme-palette-label">
+            <div className="theme-section-label" id="theme-palette-label">Color palette <span className="theme-count">6 themes</span></div>
+            <div className="theme-color-grid" role="group" aria-label="Choose a color theme">
+              {THEME_COLORS.map(theme => {
+                const selected = themeId === theme.id;
                 return (
                   <button
-                    key={t.id}
+                    key={theme.id}
                     type="button"
-                    className={`theme-color-card ${isSelected ? 'selected' : ''}`}
-                    onClick={() => setThemeId(t.id)}
-                    title={t.name}
+                    className={`theme-color-card ${selected ? 'selected' : ''}`}
+                    onClick={() => setThemeId(theme.id)}
+                    aria-pressed={selected}
+                    title={`Use ${theme.name} theme`}
                   >
-                    <div
-                      className="theme-color-swatch"
-                      style={{
-                        background: `linear-gradient(135deg, ${t.primary} 0%, ${t.secondary} 100%)`,
-                      }}
-                    >
-                      {isSelected && <span className="theme-check-icon">✓</span>}
-                    </div>
-                    <span className="theme-color-name">{t.name}</span>
+                    <span className="theme-color-swatch" style={{ background: `linear-gradient(135deg, ${theme.primary} 0%, ${theme.secondary} 100%)` }} aria-hidden="true">
+                      {selected && <span className="theme-check-icon">✓</span>}
+                    </span>
+                    <span className="theme-color-name">{theme.name}</span>
+                    {theme.id === 'royal' && <span className="theme-color-description">Blue &amp; white</span>}
                   </button>
                 );
               })}
             </div>
-          </div>
+          </section>
 
-          {/* Live Preview Card */}
-          <div className="theme-preview-card">
-            <div className="theme-preview-header">
-              <span className="theme-preview-dot" style={{ backgroundColor: 'var(--theme-primary)' }}></span>
-              <span className="theme-preview-title">Live Dynamic Preview</span>
+          <div className="theme-preview-card" aria-live="polite">
+            <span className="theme-preview-dot" style={{ backgroundColor: currentTheme.primary }} aria-hidden="true" />
+            <div className="theme-preview-copy">
+              <strong>{currentTheme.name}</strong>
+              <span>{isDark ? 'Dark appearance' : 'Light appearance'} · preview applied instantly</span>
             </div>
-            <div className="theme-preview-actions">
-              <span className="theme-preview-chip">Active: {currentTheme.name}</span>
-              <span className="theme-preview-chip-mode">{isDark ? '🌙 Cosmic Acrylic' : '☀️ Luminous Glass'}</span>
-            </div>
+            <span className="theme-preview-sample" style={{ background: `linear-gradient(135deg, ${currentTheme.primary}, ${currentTheme.secondary})` }}>Aa</span>
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="theme-modal-footer">
-          <button
-            type="button"
-            className="theme-done-btn"
-            onClick={() => setShowThemeModal(false)}
-          >
-            Apply &amp; Done
-          </button>
-        </div>
-      </div>
+        <footer className="theme-modal-footer">
+          <button type="button" className="theme-done-btn" onClick={() => setShowThemeModal(false)}>Done</button>
+        </footer>
+      </section>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { getCollegeSession, clearCollegeSession, CollegeUser, CollegeMenuItem } 
 import CollegeSidebar, { CollegePageView } from './CollegeSidebar';
 import './UGMain.css';
 import '../Home.css';
+import UniversityFooter from '../../components/UniversityFooter';
 
 // Type definitions for subpages
 type PageView = CollegePageView;
@@ -964,32 +965,7 @@ const UGMain: React.FC = () => {
             </div>
           )}
 
-          {/* Footer */}
-          <footer className="aku-footer">
-            <p className="aku-footer-text">
-              Copyright{' '}
-              <a
-                href="https://akuprakasam.ac.in/"
-                target="_blank"
-                rel="noreferrer"
-                className="aku-footer-highlight"
-              >
-                &copy; 2023 Andhra Kesari University.
-              </a>{' '}
-              All rights reserved. Developed by{' '}
-              <a
-                href="http://dbasesolutions.in/"
-                target="_blank"
-                rel="noreferrer"
-                className="aku-footer-highlight"
-              >
-                D Base Solutions Private Limited.,
-              </a>
-              <span className="aku-support-contact">
-                &nbsp;&nbsp;&nbsp;&nbsp;FOR SUPPORT CONTACT : 9948708389
-              </span>
-            </p>
-          </footer>
+          <UniversityFooter />
 
           {/* Floating D Base Badge */}
           <a

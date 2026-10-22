@@ -627,3 +627,1439 @@
     padding: 30px 18px;
   }
 }
+
+/* Reference inspired university login layout */
+.aku-login-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 76% 9%, rgba(87, 174, 250, 0.2), transparent 32%),
+    linear-gradient(145deg, #eaf5ff 0%, #d9edff 53%, #eff8ff 100%);
+  color: #102d57;
+}
+
+.dark .aku-login-page {
+  background: linear-gradient(145deg, #0d1b31 0%, #112b4d 56%, #13233a 100%);
+}
+
+.aku-login-page .aku-login-main {
+  align-items: center;
+  padding: clamp(20px, 3vw, 42px) clamp(14px, 3vw, 38px);
+}
+
+.aku-login-page .aku-login-container {
+  display: grid;
+  grid-template-columns: minmax(300px, 1.25fr) minmax(300px, 1fr) minmax(220px, 0.7fr);
+  grid-template-rows: minmax(620px, auto);
+  align-items: stretch;
+  gap: 18px;
+  width: 100%;
+  max-width: 1480px;
+}
+
+.aku-login-page .aku-login-hero {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 54px) clamp(22px, 4vw, 50px) 24px;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at 74% 37%, rgba(255, 255, 255, 0.86), transparent 43%),
+    linear-gradient(145deg, rgba(244, 250, 255, 0.97), rgba(191, 225, 255, 0.9));
+  box-shadow: 0 22px 55px rgba(31, 96, 164, 0.13), inset 0 1px 0 #fff;
+  isolation: isolate;
+}
+
+.aku-login-page .aku-login-hero::before,
+.aku-login-page .aku-login-hero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.aku-login-page .aku-login-hero::before {
+  width: 540px;
+  height: 540px;
+  right: -180px;
+  top: -235px;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 50%;
+  box-shadow: 0 0 0 34px rgba(255, 255, 255, 0.2), 0 0 0 74px rgba(255, 255, 255, 0.12);
+}
+
+.aku-login-page .aku-login-hero::after {
+  inset: auto -10% 0;
+  height: 28%;
+  background: linear-gradient(165deg, #1478df, #06458f 78%);
+  clip-path: polygon(0 48%, 18% 26%, 43% 53%, 65% 24%, 100% 4%, 100% 100%, 0 100%);
+}
+
+.dark .aku-login-page .aku-login-hero {
+  border-color: rgba(148, 193, 235, 0.2);
+  background: linear-gradient(145deg, rgba(23, 50, 82, 0.98), rgba(28, 74, 119, 0.94));
+}
+
+.aku-login-hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 490px;
+}
+
+.aku-login-eyebrow {
+  margin: 0 0 17px;
+  color: #0758a8;
+  font-size: 0.69rem;
+  font-weight: 850;
+  letter-spacing: 0.2em;
+}
+
+.aku-login-eyebrow span {
+  margin: 0 7px;
+  color: #2e8ce7;
+}
+
+.aku-login-hero h2 {
+  max-width: 520px;
+  margin: 0;
+  color: #164479;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 550;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+}
+
+.aku-login-hero h2 strong {
+  display: block;
+  color: #082c5d;
+  font-weight: 850;
+}
+
+.dark .aku-login-hero h2,
+.dark .aku-login-hero h2 strong {
+  color: #f1f7ff;
+}
+
+.aku-login-hero-portal {
+  margin: 11px 0 7px;
+  color: #0b3c77;
+  font-size: 1.12rem;
+  font-weight: 750;
+}
+
+.aku-login-hero-description {
+  max-width: 290px;
+  margin: 0;
+  color: #355c87;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.dark .aku-login-eyebrow,
+.dark .aku-login-hero-portal,
+.dark .aku-login-hero-description {
+  color: #c9e3ff;
+}
+
+/* CSS campus illustration placeholder. Replace this block with an official campus image when available. */
+.aku-campus-art {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 265px;
+  margin: 8px -18px 0;
+  overflow: hidden;
+}
+
+.aku-campus-sun {
+  position: absolute;
+  top: 18px;
+  right: 17%;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.77);
+  box-shadow: 0 0 0 18px rgba(255, 255, 255, 0.2);
+}
+
+.aku-campus-hill {
+  position: absolute;
+  bottom: 22px;
+  height: 110px;
+  border-radius: 50% 50% 0 0;
+}
+
+.aku-campus-hill-back {
+  left: -5%;
+  width: 110%;
+  background: #a5d9d0;
+  clip-path: polygon(0 72%, 18% 38%, 35% 60%, 58% 18%, 76% 58%, 100% 25%, 100% 100%, 0 100%);
+}
+
+.aku-campus-hill-front {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  background: #79bdac;
+  opacity: 0.72;
+}
+
+.aku-campus-building {
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  width: min(58%, 350px);
+  height: 168px;
+  transform: translateX(-50%);
+  border: 2px solid #d4e7f5;
+  border-bottom: 0;
+  background: linear-gradient(90deg, #f7fbff, #fff 45%, #e5f1fa);
+  box-shadow: 0 14px 24px rgba(32, 80, 122, 0.16);
+}
+
+.aku-campus-roof {
+  position: absolute;
+  top: -25px;
+  left: -7%;
+  width: 114%;
+  height: 28px;
+  background: #3b83bd;
+  clip-path: polygon(6% 0, 94% 0, 100% 100%, 0 100%);
+}
+
+.aku-campus-pediment {
+  position: absolute;
+  top: 9px;
+  left: 30%;
+  width: 40%;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  color: #124c7d;
+  background: #d6eafa;
+  border: 1px solid #a9cee8;
+  clip-path: polygon(50% 0, 100% 35%, 100% 100%, 0 100%, 0 35%);
+  font-size: 0.65rem;
+  font-weight: 850;
+}
+
+.aku-campus-columns {
+  position: absolute;
+  top: 66px;
+  right: 7%;
+  bottom: 16px;
+  left: 7%;
+  display: flex;
+  justify-content: space-around;
+  border-top: 5px solid #b6d4e8;
+  border-bottom: 8px solid #b6d4e8;
+}
+
+.aku-campus-columns i {
+  width: 13px;
+  height: 100%;
+  background: linear-gradient(90deg, #d0e4f2, #fafdff, #c6deef);
+  border-inline: 1px solid #b5d1e4;
+}
+
+.aku-campus-steps {
+  position: absolute;
+  right: 20%;
+  bottom: -11px;
+  left: 20%;
+  height: 11px;
+  background: #83b2d4;
+  box-shadow: 0 5px 0 #6196bd;
+}
+
+.aku-campus-path {
+  position: absolute;
+  z-index: 2;
+  right: 30%;
+  bottom: 0;
+  width: 40%;
+  height: 76px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(219,238,250,0.1));
+  clip-path: polygon(35% 0, 65% 0, 100% 100%, 0 100%);
+}
+
+.aku-campus-tree {
+  position: absolute;
+  z-index: 2;
+  bottom: 53px;
+  width: 48px;
+  height: 98px;
+}
+
+.aku-campus-tree i,
+.aku-campus-tree b {
+  position: absolute;
+  display: block;
+}
+
+.aku-campus-tree i {
+  bottom: 0;
+  left: 21px;
+  width: 7px;
+  height: 45px;
+  background: #6f7658;
+}
+
+.aku-campus-tree b {
+  top: 3px;
+  left: 0;
+  width: 48px;
+  height: 62px;
+  border-radius: 48% 52% 45% 55%;
+  background: #438d78;
+  box-shadow: 10px 14px 0 -4px #5da28b, -9px 19px 0 -5px #347a68;
+}
+
+.aku-campus-tree-one { left: 10%; transform: scale(0.82); }
+.aku-campus-tree-two { right: 9%; transform: scale(0.95); }
+
+.aku-campus-student {
+  position: absolute;
+  z-index: 4;
+  bottom: 28px;
+  width: 25px;
+  height: 56px;
+}
+
+.aku-campus-student i,
+.aku-campus-student b {
+  position: absolute;
+  display: block;
+}
+
+.aku-campus-student i {
+  top: 0;
+  left: 7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e6b488;
+}
+
+.aku-campus-student b {
+  top: 13px;
+  left: 3px;
+  width: 22px;
+  height: 38px;
+  border-radius: 9px 9px 3px 3px;
+  background: #1762aa;
+  box-shadow: -5px 34px 0 -7px #163b62, 5px 34px 0 -7px #163b62;
+}
+
+.aku-campus-student-one { left: 26%; transform: scale(0.9); }
+.aku-campus-student-two { left: 34%; transform: scale(0.72); }
+
+.aku-login-benefits {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 8px 0 14px;
+  color: #fff;
+}
+
+.aku-login-benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  min-width: 0;
+  padding: 0 13px;
+  border-right: 1px solid rgba(255,255,255,0.24);
+}
+
+.aku-login-benefit:first-child { padding-left: 0; }
+.aku-login-benefit:last-child { border-right: 0; }
+
+.aku-benefit-icon {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 3px;
+  border: 1px solid rgba(255,255,255,0.32);
+  border-radius: 11px;
+  background: rgba(255,255,255,0.16);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.aku-login-benefit strong {
+  font-size: 0.77rem;
+  line-height: 1.3;
+}
+
+.aku-login-benefit small {
+  color: rgba(255,255,255,0.78);
+  font-size: 0.66rem;
+  line-height: 1.4;
+}
+
+.aku-login-hero-footnote {
+  position: relative;
+  z-index: 3;
+  margin: auto 0 0;
+  color: rgba(255,255,255,0.82);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.aku-login-hero-footnote span { padding: 0 6px; }
+
+.aku-login-page .aku-login-card,
+.aku-login-page .aku-notif-card {
+  border: 1px solid rgba(137, 178, 215, 0.35);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 16px 42px rgba(24, 75, 130, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .aku-login-page .aku-login-card,
+.dark .aku-login-page .aku-notif-card {
+  background: rgba(17, 34, 56, 0.96);
+  border-color: rgba(133, 177, 220, 0.22);
+}
+
+.aku-auth-column {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid rgba(137, 178, 215, 0.35);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 16px 42px rgba(24, 75, 130, 0.12);
+}
+
+.dark .aku-auth-column {
+  border-color: rgba(133, 177, 220, 0.22);
+  background: rgba(17, 34, 56, 0.97);
+}
+
+.aku-login-page .aku-login-card {
+  padding: 21px clamp(18px, 2vw, 28px) 15px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.aku-auth-column .aku-login-card::before { display: none; }
+
+.aku-login-page .aku-login-card:hover,
+.aku-login-page .aku-notif-card:hover {
+  transform: none;
+  box-shadow: 0 20px 46px rgba(24, 75, 130, 0.16);
+}
+
+.aku-auth-column .aku-login-card:hover,
+.aku-auth-column .aku-notif-card:hover {
+  box-shadow: none;
+}
+
+.aku-login-page .aku-login-header {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 14px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.aku-login-page .aku-login-emblem-wrap {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin: 0;
+  padding: 5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(19, 64, 112, 0.12);
+}
+
+.aku-login-page .aku-login-emblem {
+  width: 48px;
+  height: 48px;
+}
+
+.aku-login-card-heading { grid-column: 2; grid-row: 1; }
+
+.aku-login-university-name {
+  margin: 0 0 2px;
+  color: #0d3d75;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.045em;
+}
+
+.dark .aku-login-university-name { color: #cfe6ff; }
+
+.aku-login-page .aku-login-title {
+  margin: 0;
+  color: #164b83;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-shadow: none;
+  text-transform: none;
+}
+
+.dark .aku-login-page .aku-login-title { color: #eff7ff; text-shadow: none; }
+
+.aku-login-card-subtitle {
+  margin: 3px 0 0;
+  color: #647d98;
+  font-size: 0.72rem;
+}
+
+.dark .aku-login-card-subtitle { color: #a9c5e1; }
+
+.aku-login-page .aku-login-badge {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  margin-top: 6px;
+  padding: 3px 8px;
+  border: 0;
+  border-radius: 5px;
+  background: #e7f2ff;
+  box-shadow: none;
+  color: #1b65ad;
+  font-size: 0.64rem;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.aku-login-page .aku-login-divider {
+  margin: 17px 0;
+  background: #e3ebf3;
+}
+
+.dark .aku-login-page .aku-login-divider { background: rgba(173, 204, 235, 0.18); }
+
+.aku-login-service-strip {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 6px;
+  margin: -3px 0 13px;
+}
+
+.aku-login-service-strip span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 34px;
+  padding: 5px 7px;
+  border: 1px solid #d6e7f6;
+  border-radius: 7px;
+  background: #f5faff;
+  color: #15599b;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.aku-login-service-strip span:first-child {
+  border-color: #1476d3;
+  background: linear-gradient(110deg, #0862c8, #1687e8);
+  color: #fff;
+}
+
+.dark .aku-login-service-strip span { background: #132d49; border-color: #315579; color: #d4e9ff; }
+.dark .aku-login-service-strip span:first-child { background: #0969c8; border-color: #2488e1; color: #fff; }
+
+.aku-login-page .aku-form { gap: 13px; }
+
+.aku-login-page .aku-label {
+  color: #244c77;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.dark .aku-login-page .aku-label { color: #d9eaff; }
+
+.aku-login-page .aku-input {
+  min-height: 43px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #cbdff2 !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  box-shadow: none;
+  font-size: 0.86rem;
+}
+
+.dark .aku-login-page .aku-input {
+  border-color: #365676 !important;
+  background: #10243a !important;
+}
+
+.aku-login-page .aku-input:focus {
+  border-color: #1f75d0 !important;
+  box-shadow: 0 0 0 3px rgba(31, 117, 208, 0.12) !important;
+}
+
+.aku-login-page .aku-captcha-row {
+  grid-template-columns: minmax(136px, 0.85fr) minmax(0, 1.15fr);
+  gap: 9px;
+}
+
+.aku-login-page .aku-captcha-display {
+  min-height: 43px;
+  padding: 3px 6px;
+  border: 1px solid #d4e4f4;
+  border-radius: 8px;
+  background: #f4f8fe;
+  box-shadow: none;
+}
+
+.aku-login-page .aku-captcha-canvas { width: 95px; height: 36px; }
+
+.aku-login-page .aku-captcha-refresh {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-color: #cfe0f2;
+  color: #145da5;
+  box-shadow: none;
+}
+
+.aku-login-page .aku-login-btn {
+  min-height: 44px;
+  margin-top: 3px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(100deg, #0862c8, #1687e8);
+  box-shadow: 0 7px 16px rgba(11, 99, 195, 0.22);
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.aku-login-page .aku-login-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 9px 19px rgba(11, 99, 195, 0.28);
+}
+
+.aku-login-card-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 13px;
+  color: #56718e;
+  font-size: 0.69rem;
+  font-weight: 650;
+}
+
+.aku-login-card-note span {
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #e7f5ec;
+  color: #21804b;
+  font-size: 0.65rem;
+}
+
+.aku-login-page .aku-notif-card {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  border: 0;
+  border-top: 1px solid #e2edf8;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.aku-login-page .aku-notif-header {
+  padding: 13px 18px;
+  background: #f3f8ff;
+  border-bottom: 1px solid #e2edf8;
+  color: #164b83;
+}
+
+.aku-login-page .aku-notif-header h2 { font-size: 0.92rem; letter-spacing: 0; }
+.aku-login-page .aku-notif-bell { animation: none; }
+
+.aku-login-page .aku-notif-count-badge {
+  padding: 4px 9px;
+  border: 1px solid #d6e8fa;
+  background: #e7f2ff;
+  color: #1c64a8;
+  font-size: 0.68rem;
+  box-shadow: none;
+}
+
+.aku-login-page .aku-notif-body {
+  max-height: 240px;
+  padding: 12px;
+  gap: 8px;
+}
+
+.aku-login-page .aku-notif-item {
+  padding: 10px 12px;
+  border: 1px solid #e4edf6;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.dark .aku-login-page .aku-notif-header { background: #172e49; border-color: #29435f; color: #e4f1ff; }
+.dark .aku-login-page .aku-notif-item { background: #13263c; border-color: #29435f; }
+
+.aku-login-page .aku-notif-item:hover {
+  transform: translateY(-1px);
+  border-color: #9dc7ed;
+  box-shadow: 0 5px 13px rgba(28, 78, 130, 0.08);
+}
+
+.aku-login-page .aku-notif-title { font-size: 0.79rem; line-height: 1.4; }
+.aku-login-page .aku-notif-meta { gap: 7px; font-size: 0.67rem; }
+
+/* Static phone preview mirrors the real responsive page at desktop widths. */
+.aku-phone-preview {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 4px 0;
+}
+
+.aku-phone-frame {
+  position: relative;
+  width: 100%;
+  max-width: 258px;
+  height: clamp(540px, calc(100vh - 108px), 700px);
+  min-height: 540px;
+  padding: 7px;
+  border: 3px solid #344050;
+  border-radius: 39px;
+  background: linear-gradient(145deg, #263447, #050a11 38%);
+  box-shadow: 0 14px 26px rgba(8, 34, 67, 0.32), inset 0 0 0 2px #8290a1;
+}
+
+.aku-phone-frame::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 50%;
+  width: 32%;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 0 0 10px 10px;
+  background: #050a11;
+}
+
+.aku-phone-screen {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #f8fbff;
+  color: #102f58;
+}
+
+.aku-phone-statusbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 16px 5px;
+  background: #075fc6;
+  color: #fff;
+  font-size: 0.48rem;
+  font-weight: 750;
+}
+
+.aku-phone-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 8px;
+  background: #075fc6;
+  color: #fff;
+}
+
+.aku-phone-header img {
+  width: 30px;
+  height: 30px;
+  padding: 2px;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: contain;
+}
+
+.aku-phone-header span { display: flex; flex: 1; flex-direction: column; gap: 2px; }
+.aku-phone-header strong { font-size: 0.43rem; line-height: 1.05; }
+.aku-phone-header small { font-size: 0.39rem; }
+.aku-phone-header > b { font-size: 0.83rem; }
+
+.aku-phone-welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-height: 103px;
+  padding: 19px 13px 14px;
+  background:
+    radial-gradient(ellipse at 80% 100%, rgba(255,255,255,0.32), transparent 45%),
+    linear-gradient(155deg, #1179dd, #064890);
+  color: white;
+}
+
+.aku-phone-welcome small { font-size: 0.52rem; }
+.aku-phone-welcome strong { max-width: 145px; font-size: 0.73rem; line-height: 1.08; }
+.aku-phone-welcome span { font-size: 0.48rem; }
+
+.aku-phone-form-preview {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: -8px 7px 0;
+  padding: 8px;
+  border: 1px solid #e1ebf5;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(20, 66, 112, 0.12);
+}
+
+.aku-phone-semesters {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4px;
+  margin-bottom: 3px;
+}
+
+.aku-phone-semesters b,
+.aku-phone-semesters span {
+  display: flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 4px;
+  border: 1px solid #d6e7f6;
+  border-radius: 6px;
+  color: #17568f;
+  font-size: 0.38rem;
+  line-height: 1.1;
+}
+
+.aku-phone-semesters b { background: #e8f3ff; }
+.aku-phone-form-preview label { color: #193f6d; font-size: 0.42rem; font-weight: 750; }
+
+.aku-phone-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px;
+  padding: 0 7px;
+  border: 1px solid #d7e6f5;
+  border-radius: 5px;
+  color: #93a7bc;
+  font-size: 0.39rem;
+}
+
+.aku-phone-captcha {
+  display: grid;
+  grid-template-columns: 1fr 22px 1fr;
+  align-items: center;
+  gap: 4px;
+}
+
+.aku-phone-captcha b,
+.aku-phone-captcha i {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  height: 24px;
+  padding: 2px;
+  border: 1px solid #d7e6f5;
+  border-radius: 4px;
+  color: #15559a;
+  font-size: 0.42rem;
+  font-style: normal;
+}
+
+.aku-phone-captcha b { background: #edf4ff; letter-spacing: 0.06em; }
+.aku-phone-captcha span { display: grid; place-items: center; height: 22px; border: 1px solid #d7e6f5; border-radius: 4px; color: #1266bd; font-size: 0.75rem; }
+.aku-phone-captcha i { color: #8ca2b9; font-size: 0.33rem; }
+
+.aku-phone-login-button {
+  display: grid;
+  place-items: center;
+  min-height: 26px;
+  margin-top: 2px;
+  border-radius: 6px;
+  background: linear-gradient(100deg, #0862c8, #1687e8);
+  color: #fff;
+  font-size: 0.48rem;
+  font-weight: 750;
+}
+
+.aku-phone-secure {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 3px 0;
+  color: #476887;
+  font-size: 0.35rem;
+}
+
+.aku-phone-notices {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 7px;
+}
+
+.aku-phone-notices > div {
+  display: grid;
+  grid-template-columns: 16px 1fr 9px;
+  align-items: center;
+  gap: 5px;
+  min-height: 29px;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 0.35rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.aku-phone-notices b,
+.aku-phone-notices i { font-size: 0.62rem; font-style: normal; }
+.phone-notice-blue { background: #edf6ff; border-color: #d4eaff !important; color: #0861b8; }
+.phone-notice-red { background: #fff0f2; border-color: #ffd8df !important; color: #d83652; }
+.phone-notice-green { background: #edfbf3; border-color: #cff1dd !important; color: #13894b; }
+
+.aku-phone-motto {
+  margin: auto 12px 7px;
+  color: #1a67ab;
+  font-family: Georgia, serif;
+  font-size: 0.65rem;
+  font-style: italic;
+  line-height: 1.05;
+  transform: rotate(-5deg);
+}
+
+.aku-phone-motto strong { font-weight: 700; }
+
+.aku-phone-footer {
+  padding: 6px 8px;
+  background: #0752a1;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.33rem;
+}
+
+.aku-login-page button:focus-visible,
+.aku-login-page input:focus-visible {
+  outline: 3px solid rgba(21, 112, 205, 0.28);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .aku-login-page .aku-login-container {
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+    grid-template-rows: minmax(620px, auto);
+    gap: 16px;
+  }
+
+  .aku-login-page .aku-login-hero {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 620px;
+  }
+
+  .aku-auth-column { grid-column: 2; grid-row: 1; }
+  .aku-login-page .aku-notif-body { max-height: 260px; }
+  .aku-phone-preview { display: none; }
+}
+
+@media (max-width: 760px) {
+  .aku-login-page .aku-login-container { grid-template-columns: minmax(0, 560px); grid-template-rows: auto; justify-content: center; }
+  .aku-login-page .aku-login-hero { grid-column: 1; grid-row: auto; min-height: 510px; }
+  .aku-auth-column { grid-column: 1; grid-row: auto; min-height: auto; }
+  .aku-login-page .aku-login-card { padding: 21px 17px 17px; }
+  .aku-login-page .aku-notif-body { max-height: 340px; }
+}
+
+@media (max-width: 600px) {
+  .aku-login-page .aku-login-main { padding: 14px 12px 26px; }
+
+  .aku-login-page .aku-login-container { gap: 13px; }
+
+  .aku-login-page .aku-login-hero {
+    min-height: 430px;
+    padding: 28px 22px 18px;
+    border-radius: 16px;
+  }
+
+  .aku-login-hero h2 { font-size: clamp(2rem, 9vw, 2.7rem); }
+
+  .aku-login-hero-description { max-width: 250px; font-size: 0.82rem; }
+
+  .aku-campus-art {
+    min-height: 185px;
+    margin: 2px -12px 0;
+  }
+
+  .aku-campus-building { width: 58%; height: 126px; bottom: 38px; }
+  .aku-campus-roof { top: -20px; height: 22px; }
+  .aku-campus-columns { top: 51px; bottom: 12px; }
+  .aku-campus-columns i { width: 9px; }
+  .aku-campus-pediment { top: 6px; height: 38px; }
+  .aku-campus-tree { transform: scale(0.68); transform-origin: bottom center; bottom: 40px; }
+  .aku-campus-student { transform: scale(0.7); transform-origin: bottom center; bottom: 18px; }
+  .aku-campus-student-two { transform: scale(0.58); }
+  .aku-campus-hill { bottom: 16px; }
+
+  .aku-login-benefits { margin-top: 1px; }
+  .aku-login-benefit { padding: 0 7px; gap: 4px; }
+  .aku-login-benefit strong { font-size: 0.65rem; }
+  .aku-login-benefit small { font-size: 0.58rem; }
+  .aku-benefit-icon { width: 29px; height: 29px; border-radius: 9px; }
+
+  .aku-login-page .aku-auth-column { border-radius: 16px; }
+  .aku-login-page .aku-login-card { padding: 21px 17px 17px; }
+  .aku-login-page .aku-login-title { font-size: 1rem; }
+  .aku-login-university-name { font-size: 0.66rem; }
+  .aku-login-page .aku-login-divider { margin: 14px 0; }
+  .aku-login-service-strip { gap: 5px; margin-bottom: 11px; }
+  .aku-login-service-strip span { min-height: 38px; padding: 4px 5px; font-size: 0.57rem; }
+  .aku-login-page .aku-form { gap: 12px; }
+  .aku-login-page .aku-captcha-row { grid-template-columns: minmax(132px, 0.9fr) minmax(0, 1.1fr); }
+  .aku-login-page .aku-notif-card { border-radius: 0; }
+  .aku-login-page .aku-notif-body { padding: 10px; }
+  .aku-login-page .aku-footer-text { padding: 0 12px; line-height: 1.7; }
+  .aku-login-page .aku-floating-badge { display: none; }
+}
+
+/* Keep the desktop composition inside the space left by the site header/footer. */
+@media (min-width: 761px) {
+  .aku-login-page {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .aku-login-page .aku-login-main {
+    flex: 1 1 0;
+    min-height: 0;
+    padding: clamp(8px, 1.4vh, 20px) clamp(12px, 1.6vw, 24px);
+  }
+
+  .aku-login-page .aku-login-container {
+    width: min(100%, 1480px);
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr);
+    gap: clamp(10px, 1.4vw, 20px);
+  }
+
+  .aku-login-page .aku-login-hero,
+  .aku-login-page .aku-auth-column {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .aku-login-page .aku-login-hero {
+    padding: clamp(16px, 2.3vh, 32px) clamp(15px, 2vw, 30px) clamp(12px, 1.8vh, 24px);
+  }
+
+  .aku-login-page .aku-campus-art {
+    flex: 1 1 0;
+    min-height: 90px;
+  }
+
+  .aku-login-page .aku-login-benefits { margin-top: clamp(8px, 1.5vh, 18px); }
+
+  .aku-login-page .aku-auth-column {
+    overflow: auto;
+    scrollbar-width: thin;
+  }
+
+  .aku-login-page .aku-login-card {
+    flex: 0 0 auto;
+    padding: clamp(12px, 1.7vh, 22px) clamp(12px, 1.5vw, 22px);
+  }
+
+  .aku-login-page .aku-login-divider { margin: clamp(8px, 1.2vh, 15px) 0; }
+  .aku-login-page .aku-login-service-strip { margin-bottom: clamp(7px, 1vh, 12px); }
+  .aku-login-page .aku-form { gap: clamp(7px, 1vh, 12px); }
+  .aku-login-page .aku-notif-card { flex: 0 0 auto; }
+  .aku-login-page .aku-notif-body { max-height: none; }
+
+  .aku-login-page .aku-phone-preview {
+    height: 100%;
+    min-height: 0;
+    max-height: 700px;
+  }
+
+  .aku-login-page .aku-phone-frame {
+    height: min(100%, calc(100dvh - 100px));
+    min-height: 0;
+  }
+}
+
+/* Short desktop and tablet viewports get tighter spacing while retaining the full form. */
+@media (min-width: 761px) and (max-height: 760px) {
+  .aku-login-page .aku-login-hero { padding-top: 12px; padding-bottom: 10px; }
+  .aku-login-page .aku-login-eyebrow { margin-bottom: 5px; }
+  .aku-login-page .aku-login-hero h2 { font-size: clamp(1.65rem, 4vh, 2.6rem); }
+  .aku-login-page .aku-login-hero-description { margin-top: 7px; }
+  .aku-login-page .aku-login-benefits { margin-top: 6px; }
+  .aku-login-page .aku-login-card { padding-top: 10px; padding-bottom: 10px; }
+  .aku-login-page .aku-login-divider { margin: 7px 0; }
+  .aku-login-page .aku-form { gap: 6px; }
+}
+
+/* Mobile remains naturally scrollable, with a shorter welcome panel. */
+@media (max-width: 760px) {
+  .aku-login-page {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .aku-login-page .aku-login-main { flex: 1 0 auto; min-height: 0; }
+  .aku-login-page .aku-login-container { height: auto; min-height: 0; grid-template-rows: auto; }
+  .aku-login-page .aku-login-hero { min-height: 0; }
+  .aku-login-page .aku-campus-art { min-height: 130px; }
+}
+
+@media (max-width: 600px) {
+  .aku-login-page .aku-login-main { padding-top: 10px; padding-bottom: 16px; }
+  .aku-login-page .aku-login-container { gap: 10px; }
+  .aku-login-page .aku-login-hero { padding: 20px 18px 14px; }
+  .aku-login-page .aku-campus-art { min-height: 112px; }
+  .aku-login-page .aku-login-benefits { margin-top: 8px; }
+  .aku-login-page .aku-login-card { padding: 16px 14px 14px; }
+  .aku-login-page .aku-login-divider { margin: 9px 0; }
+  .aku-login-page .aku-form { gap: 9px; }
+}
+
+/* Mobile login follows the compact portal layout shown in the phone reference. */
+@media (max-width: 760px) {
+  .aku-login-page {
+    background: #0756a8;
+    color: #12345c;
+  }
+
+  .aku-login-page .aku-header {
+    position: relative;
+    z-index: 1200;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 64px;
+    padding: 0 14px;
+    background: var(--glass-bg-header);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow-sm);
+    overflow: visible;
+  }
+
+  .aku-login-page .aku-brand-container {
+    flex: 1;
+    min-width: 0;
+    justify-content: flex-start;
+    padding: 0;
+    border: 0;
+  }
+
+  .aku-login-page .aku-brand {
+    gap: 9px;
+    padding: 3px 10px;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .96);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, .12), inset 0 1px 0 #fff;
+  }
+
+  .aku-login-page .aku-brand-logo {
+    width: 42px;
+    height: 42px;
+    padding: 2px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  .aku-login-page .aku-brand-copy {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    color: var(--theme-primary);
+    line-height: 1.15;
+  }
+
+  .aku-login-page .aku-brand-copy strong { font-size: 0.68rem; letter-spacing: 0.025em; }
+  .aku-login-page .aku-brand-copy small { margin-top: 3px; font-size: 0.61rem; }
+
+  .aku-login-page .aku-mobile-toggle {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: var(--glass-bg-subtle);
+    color: var(--theme-text-color);
+    font-size: 1.45rem;
+  }
+
+  .aku-login-page .aku-mobile-menu {
+    position: absolute;
+    z-index: 1201;
+    top: calc(100% + 8px);
+    right: 14px;
+    left: 14px;
+    width: auto;
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    background: var(--glass-bg-elevated);
+    color: var(--theme-text-color);
+    box-shadow: var(--glass-shadow-lg);
+    backdrop-filter: blur(var(--glass-blur-lg)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(180%);
+  }
+
+  .aku-login-page .aku-mobile-menu .aku-nav-link {
+    color: var(--theme-text-color);
+    border-color: var(--glass-border);
+    background: var(--glass-bg-solid);
+  }
+
+  .aku-login-page .aku-mobile-menu .aku-nav-timing {
+    color: #fff !important;
+    background: linear-gradient(110deg, var(--theme-primary), var(--theme-secondary));
+  }
+
+  .aku-login-page .aku-login-main {
+    display: block;
+    padding: 0 0 18px;
+  }
+
+  .aku-login-page .aku-login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .aku-login-page .aku-login-hero {
+    position: relative;
+    min-height: 0;
+    padding: 24px 22px 118px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(155deg, #1688e8 0%, #0754a8 70%, #06448f 100%);
+    box-shadow: none;
+  }
+
+  .aku-login-page .aku-login-hero::before { display: none; }
+  .aku-login-page .aku-login-hero::after {
+    inset: auto -8% -28px;
+    z-index: 1;
+    height: 112px;
+    border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+    background: #fff;
+    clip-path: none;
+  }
+
+  .aku-login-page .aku-login-hero-copy {
+    max-width: 310px;
+    color: #fff;
+  }
+
+  .aku-login-page .aku-login-eyebrow { display: none; }
+  .aku-login-page .aku-login-hero h2 {
+    max-width: 290px;
+    color: #fff;
+    font-size: clamp(1.15rem, 5vw, 1.55rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.13;
+  }
+
+  .aku-login-page .aku-login-hero h2 strong { color: #fff; font-weight: 800; }
+  .aku-login-page .aku-login-hero-portal { margin: 4px 0 6px; color: #fff; font-size: 0.83rem; }
+  .aku-login-page .aku-login-hero-description { max-width: 235px; color: rgba(255,255,255,.88); font-size: 0.68rem; line-height: 1.4; }
+
+  .aku-login-page .aku-campus-art {
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+    min-height: 112px;
+    margin: 0;
+    opacity: .92;
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 26%);
+  }
+
+  .aku-login-page .aku-campus-building { right: 7%; bottom: 23px; width: 45%; height: 76px; }
+  .aku-login-page .aku-campus-roof { top: -14px; height: 16px; }
+  .aku-login-page .aku-campus-columns { top: 34px; bottom: 7px; }
+  .aku-login-page .aku-campus-columns i { width: 6px; }
+  .aku-login-page .aku-campus-pediment { top: 4px; height: 25px; }
+  .aku-login-page .aku-campus-hill { bottom: 14px; }
+  .aku-login-page .aku-campus-tree { bottom: 20px; transform: scale(.42); transform-origin: bottom center; }
+  .aku-login-page .aku-campus-student { display: none; }
+  .aku-login-page .aku-login-benefits,
+  .aku-login-page .aku-login-hero-footnote { display: none; }
+
+  .aku-login-page .aku-auth-column {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: 0;
+    margin: -30px 14px 0;
+    overflow: hidden;
+    border: 1px solid #e0eaf5;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(0, 44, 104, .14);
+  }
+
+  .aku-login-page .aku-login-card {
+    padding: 15px 14px 10px;
+    background: #fff;
+  }
+
+  .aku-login-page .aku-login-header { grid-template-columns: 46px minmax(0, 1fr); column-gap: 10px; }
+  .aku-login-page .aku-login-emblem-wrap { padding: 3px; }
+  .aku-login-page .aku-login-emblem { width: 42px; height: 42px; }
+  .aku-login-page .aku-login-university-name { font-size: 0.67rem; }
+  .aku-login-page .aku-login-title { color: #164b83; font-size: 0.84rem; }
+  .aku-login-page .aku-login-card-subtitle,
+  .aku-login-page .aku-login-badge { display: none; }
+  .aku-login-page .aku-login-divider { margin: 9px 0; }
+  .aku-login-page .aku-login-service-strip { gap: 5px; margin-bottom: 10px; }
+  .aku-login-page .aku-login-service-strip span { min-height: 34px; padding: 4px; font-size: 0.56rem; }
+  .aku-login-page .aku-label { gap: 6px; font-size: 0.68rem; }
+  .aku-login-page .aku-input-group { gap: 5px; }
+  .aku-login-page .aku-input { min-height: 34px; padding: 8px 34px 8px 35px; border-radius: 8px !important; font-size: 0.7rem; }
+  .aku-login-page .aku-input-icon { left: 10px; }
+  .aku-login-page .aku-input-icon svg { width: 15px; height: 15px; }
+  .aku-login-page .aku-password-toggle { right: 7px; }
+  .aku-login-page .aku-password-toggle svg { width: 15px; height: 15px; }
+  .aku-login-page .aku-form { gap: 9px; }
+  .aku-login-page .aku-captcha-row { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 6px; }
+  .aku-login-page .aku-captcha-canvas { max-width: 76px; }
+  .aku-login-page .aku-captcha-display { min-width: 0; padding: 3px 5px; }
+  .aku-login-page .aku-captcha-refresh { flex: 0 0 28px; }
+  .aku-login-page .aku-login-btn { min-height: 38px; border-radius: 9px; font-size: 0.79rem; }
+  .aku-login-page .aku-login-card-note { padding-top: 8px; font-size: 0.61rem; }
+  .aku-login-page .aku-notif-card { border-top: 1px solid #edf2f7; border-radius: 0; background: #fff; }
+  .aku-login-page .aku-notif-header { display: none; }
+  .aku-login-page .aku-notif-body { display: flex; flex-direction: column; gap: 5px; padding: 4px 12px 12px; }
+  .aku-login-page .aku-notif-item { min-height: 35px; padding: 5px 7px; border-radius: 9px; }
+  .aku-login-page .aku-notif-meta { display: none; }
+  .aku-login-page .aku-notif-title { font-size: 0.58rem; line-height: 1.25; }
+  .aku-login-page .aku-notif-item .hand-anim { font-size: .85rem; }
+  .aku-login-page .aku-auth-column::after {
+    content: '🎓  Better Education, Brighter Future';
+    display: block;
+    padding: 7px 12px 13px;
+    color: #0756a8;
+    font-family: Georgia, serif;
+    font-size: .76rem;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .aku-login-page .aku-footer { color: rgba(255,255,255,.92); }
+  .aku-login-page .aku-footer-text { font-size: .62rem; }
+}
+
+/* Palette driven accents for both login layouts. */
+.aku-login-page {
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(var(--theme-primary-rgb), .12), transparent 42%),
+    linear-gradient(145deg, var(--theme-bg-page), color-mix(in srgb, var(--theme-primary) 8%, #fff), var(--theme-bg-page));
+}
+
+.aku-login-page .aku-login-hero {
+  background:
+    radial-gradient(ellipse at 74% 37%, rgba(255, 255, 255, .86), transparent 43%),
+    linear-gradient(145deg, color-mix(in srgb, var(--theme-primary) 8%, #fff), color-mix(in srgb, var(--theme-secondary) 26%, #fff));
+}
+
+.aku-login-page .aku-login-hero::after { background: linear-gradient(165deg, var(--theme-secondary), var(--theme-primary) 78%); }
+.aku-login-page .aku-login-hero h2,
+.aku-login-page .aku-login-hero h2 strong,
+.aku-login-page .aku-login-hero-portal,
+.aku-login-page .aku-login-eyebrow,
+.aku-login-page .aku-login-university-name,
+.aku-login-page .aku-login-title,
+.aku-login-page .aku-auth-column::after { color: var(--theme-primary); }
+.aku-login-page .aku-login-hero-description { color: var(--theme-text-muted); }
+.aku-login-page .aku-login-service-strip span:first-child,
+.aku-login-page .aku-login-btn { background: linear-gradient(100deg, var(--theme-primary), var(--theme-secondary)); }
+.aku-login-page .aku-login-service-strip span:first-child { border-color: var(--theme-primary); }
+.aku-login-page .aku-captcha-refresh { color: var(--theme-primary); border-color: rgba(var(--theme-primary-rgb), .28); }
+
+@media (max-width: 760px) {
+  .aku-login-page { background: var(--theme-primary); }
+  .aku-login-page .aku-header { background: var(--glass-bg-header); }
+  .aku-login-page .aku-mobile-menu { background: var(--glass-bg-elevated); }
+  .aku-login-page .aku-login-hero {
+    background: linear-gradient(155deg, var(--theme-secondary) 0%, var(--theme-primary) 70%, color-mix(in srgb, var(--theme-primary) 70%, #001a38) 100%);
+  }
+  .aku-login-page .aku-login-hero h2,
+  .aku-login-page .aku-login-hero h2 strong,
+  .aku-login-page .aku-login-hero-portal { color: #fff; }
+  .aku-login-page .aku-login-hero-description { color: rgba(255,255,255,.9); }
+  .aku-login-page .aku-login-title { color: var(--theme-primary); }
+}
+
+.dark .aku-login-page .aku-login-title,
+.dark .aku-login-page .aku-login-university-name { color: var(--theme-secondary); }
+
+.dark .aku-login-page {
+  background: linear-gradient(145deg, var(--theme-bg-page), color-mix(in srgb, var(--theme-primary) 10%, var(--theme-bg-page)), var(--theme-bg-page));
+}
+
+.dark .aku-login-page .aku-login-hero {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--theme-primary) 22%, #0b1422), color-mix(in srgb, var(--theme-secondary) 20%, #0b1422));
+}
+
+@media (max-width: 760px) {
+  .dark .aku-login-page .aku-login-hero {
+    background: linear-gradient(155deg, var(--theme-secondary) 0%, var(--theme-primary) 70%, color-mix(in srgb, var(--theme-primary) 70%, #001a38) 100%);
+  }
+}

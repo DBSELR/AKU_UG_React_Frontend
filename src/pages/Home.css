@@ -77,6 +77,18 @@
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08));
 }
 
+.aku-brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: var(--theme-primary, #073b78);
+  text-align: left;
+  line-height: 1.15;
+}
+
+.aku-brand-copy strong { font-size: 0.76rem; font-weight: 850; letter-spacing: 0.025em; }
+.aku-brand-copy small { font-size: 0.68rem; font-weight: 650; }
+
 .dark .aku-brand {
   background: rgba(255, 255, 255, 0.96);
   border-color: rgba(255, 255, 255, 0.5);
@@ -337,11 +349,19 @@
 .aku-mobile-menu {
   display: none;
   flex-direction: column;
+  position: absolute;
+  z-index: 1201;
+  top: calc(100% + 8px);
+  right: 14px;
+  width: min(380px, calc(100vw - 28px));
+  max-height: min(70vh, 540px);
+  overflow-y: auto;
   background: var(--glass-bg-elevated);
   backdrop-filter: blur(var(--glass-blur-lg));
   -webkit-backdrop-filter: blur(var(--glass-blur-lg));
   padding: 16px 20px;
-  border-bottom: 1px solid var(--glass-border);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
   gap: 8px;
 }
 
@@ -352,7 +372,15 @@
 .aku-mobile-menu .aku-nav-link {
   padding: 12px 16px;
   color: var(--theme-text-color);
-  border: 1px solid var(--glass-border-subtle);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg-solid);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, .05), var(--glass-inset-bevel);
+}
+
+.aku-mobile-menu .aku-nav-link:hover {
+  color: var(--theme-primary);
+  background: var(--theme-highlight-bg);
+  border-color: rgba(var(--theme-primary-rgb), .32);
 }
 
 /* ========================================================
@@ -610,17 +638,16 @@
    ======================================================== */
 .aku-footer {
   background: linear-gradient(
-    135deg, 
-    rgba(var(--theme-primary-rgb, 13, 148, 136), 0.9) 0%, 
-    rgba(var(--theme-secondary-rgb, 20, 184, 166), 0.88) 100%
+    120deg,
+    color-mix(in srgb, var(--theme-primary) 86%, #07182d) 0%,
+    color-mix(in srgb, var(--theme-secondary) 86%, #07182d) 100%
   );
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   color: #ffffff;
-  padding: 18px 24px;
-  text-align: center;
-  font-size: 0.92rem;
-  line-height: 1.6;
+  padding: 15px clamp(16px, 3vw, 36px);
+  font-size: 0.84rem;
+  line-height: 1.5;
   position: relative;
   z-index: 10;
   border-top: 1px solid rgba(255, 255, 255, 0.25);
@@ -630,12 +657,82 @@
 
 .aku-footer-text {
   margin: 0;
-  display: inline-block;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  color: rgba(255, 255, 255, .9);
+}
+
+.aku-footer-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aku-footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.aku-footer-credit { justify-content: center; }
+
+.aku-support-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.aku-support-contact svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.aku-support-contact strong { color: #fff; font-variant-numeric: tabular-nums; }
+.aku-support-contact:hover { background: rgba(255, 255, 255, .2); border-color: rgba(255, 255, 255, .48); transform: translateY(-1px); }
+.aku-support-contact:focus-visible,
+.aku-footer-highlight:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 3px; }
+
+.aku-footer-copy { justify-content: center; gap: 3px 7px; }
+
+@media (max-width: 760px) {
+  .aku-footer-inner { gap: 4px 12px; }
+  .aku-footer-copy,
+  .aku-footer-meta { justify-content: center; }
+  .aku-footer-meta { gap: 4px 10px; }
+  .aku-footer { padding: 12px 14px; }
+}
+
+@media (max-width: 420px) {
+  .aku-footer-meta { flex-direction: row; gap: 4px 8px; }
+  .aku-footer-text { justify-content: center; font-size: .76rem; }
 }
 
 .aku-footer-highlight {
-  color: var(--highlight-text, #fef08a);
+  color: color-mix(in srgb, var(--theme-accent) 48%, #ffffff);
   font-weight: 800;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -646,11 +743,6 @@
   color: #ffffff;
   text-decoration: underline;
   transform: translateY(-1px);
-}
-
-.aku-support-contact {
-  font-weight: 800;
-  letter-spacing: 0.5px;
 }
 
 /* Floating D-Base Glass Badge */
@@ -838,22 +930,53 @@
    ======================================================== */
 @media (max-width: 900px) {
   .aku-header {
-    flex-direction: column;
+    z-index: 1200;
+    flex-direction: row;
+    align-items: center;
+    min-height: 64px;
+    padding: 0 14px;
+    overflow: visible;
   }
   
   .aku-brand-container {
-    justify-content: space-between;
-    padding: 10px 18px;
+    flex: 1;
+    min-width: 0;
+    justify-content: flex-start;
+    padding: 0;
     border-right: none;
-    border-bottom: 1px solid var(--glass-border-subtle);
+    border-bottom: none;
+  }
+
+  .aku-brand {
+    gap: 9px;
+    padding: 3px 10px;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .96);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, .12), inset 0 1px 0 #fff;
+  }
+  .aku-brand-logo { width: 42px; height: 42px; padding: 2px; border-radius: 50%; background: #fff; }
+  .aku-brand-copy { color: var(--theme-primary); }
+  .aku-brand-copy strong { font-size: .68rem; }
+  .aku-brand-copy small { margin-top: 3px; font-size: .61rem; }
+
+  .aku-mobile-toggle {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: var(--glass-bg-subtle);
+    color: var(--theme-text-color);
+    font-size: 1.45rem;
+    line-height: 1;
   }
 
   .aku-navbar {
     display: none;
-  }
-
-  .aku-mobile-toggle {
-    display: block;
   }
 
   .aku-card {
@@ -873,4 +996,39 @@
     width: 100%;
     min-width: unset;
   }
+
+  .aku-mobile-menu {
+    position: absolute;
+    z-index: 1201;
+    top: calc(100% + 8px);
+    right: 14px;
+    left: 14px;
+    width: auto;
+    background: var(--glass-bg-elevated);
+    color: var(--theme-text-color);
+    box-shadow: var(--glass-shadow-lg);
+    backdrop-filter: blur(var(--glass-blur-lg)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(180%);
+  }
+
+  .aku-mobile-menu .aku-nav-link {
+    width: 100%;
+    text-align: left;
+    color: var(--theme-text-color);
+    border-color: var(--glass-border);
+    background: var(--glass-bg-solid);
+  }
+
+  .aku-mobile-menu .aku-nav-timing {
+    color: #fff !important;
+    background: linear-gradient(110deg, var(--theme-primary), var(--theme-secondary));
+  }
 }
+
+@media (max-width: 420px) {
+  .aku-header { padding: 0 14px; }
+  .aku-brand-copy strong { font-size: .68rem; }
+  .aku-brand-copy small { font-size: .61rem; }
+  .aku-mobile-toggle { width: 40px; height: 40px; }
+}
+
