@@ -15,7 +15,7 @@ export const THEME_COLORS: ThemeColor[] = [
   { id: 'midnight', name: 'Midnight Navy', primary: '#111827', secondary: '#b45309', accent: '#fbbf24', bgLight: '#f3f4f6' },
   { id: 'lavender', name: 'Lavender Mist', primary: '#7c3aed', secondary: '#be185d', accent: '#f9a8d4', bgLight: '#faf5ff' },
   { id: 'coal', name: 'Graphite Coal', primary: '#1f2937', secondary: '#64748b', accent: '#cbd5e1', bgLight: '#f1f5f9' },
-  { id: 'royal', name: 'Royal Blue', primary: '#1d4ed8', secondary: '#1e40af', accent: '#bfdbfe', bgLight: '#eff6ff' },
+  { id: 'royal', name: 'AKU Heritage Blue', primary: '#1d58a6', secondary: '#164788', accent: '#e2c46e', bgLight: '#edf5ff' },
 ];
 
 const hexToRgb = (hex: string): string => {
@@ -45,8 +45,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [themeId, setThemeIdState] = useState<string>(() => {
-    const savedTheme = localStorage.getItem('aku_theme_color');
-    return THEME_COLORS.some(theme => theme.id === savedTheme) ? savedTheme as string : 'teal';
+    const savedTheme = localStorage.getItem('aku_theme_color_v2');
+    return THEME_COLORS.some(theme => theme.id === savedTheme) ? savedTheme as string : 'royal';
   });
 
   const [isDark, setIsDark] = useState<boolean>(() => {
@@ -80,7 +80,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     document.documentElement.style.setProperty('--theme-accent-rgb', hexToRgb(selected.accent));
     document.documentElement.style.setProperty('--ion-color-primary', selected.primary);
     document.documentElement.style.setProperty('--theme-color', selected.primary);
-    const headerBg = `linear-gradient(135deg, rgba(${hexToRgb(selected.primary)}, 0.88) 0%, rgba(${hexToRgb(selected.secondary)}, 0.85) 100%)`;
+    const headerBg = `linear-gradient(105deg, ${selected.primary} 0%, ${selected.secondary} 100%)`;
     document.documentElement.style.setProperty('--theme-header-bg', headerBg);
     document.documentElement.style.setProperty('--theme-shadow', `rgba(${hexToRgb(selected.primary)}, 0.32)`);
     document.documentElement.style.setProperty('--theme-shadow-lg', `rgba(${hexToRgb(selected.primary)}, 0.48)`);
@@ -88,7 +88,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     applyTheme(themeId, isDark);
-    localStorage.setItem('aku_theme_color', themeId);
+    localStorage.setItem('aku_theme_color_v2', themeId);
     localStorage.setItem('aku_theme_mode', isDark ? 'dark' : 'light');
   }, [themeId, isDark]);
 

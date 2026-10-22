@@ -73,7 +73,7 @@ export const ThemeModal: React.FC = () => {
                       {selected && <span className="theme-check-icon">✓</span>}
                     </span>
                     <span className="theme-color-name">{theme.name}</span>
-                    {theme.id === 'royal' && <span className="theme-color-description">Blue &amp; white</span>}
+                    {theme.id === 'royal' && <span className="theme-color-description">AKU heritage blue &amp; gold</span>}
                   </button>
                 );
               })}
