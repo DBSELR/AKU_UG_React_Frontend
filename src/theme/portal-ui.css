@@ -1,0 +1,149 @@
+/* Shared Andhra Kesari University blue visual system */
+body,
+button,
+input,
+select,
+textarea { font-family: Roboto, 'Segoe UI', Arial, sans-serif; }
+
+.aku-header,
+.aku-ugmain-header,
+.aku-admin-header {
+  background: var(--theme-header-bg, linear-gradient(105deg, #1d58a6 0%, #164788 100%)) !important;
+  border-bottom: 2px solid color-mix(in srgb, var(--theme-accent, #e2c46e) 72%, transparent) !important;
+  box-shadow: 0 4px 18px rgba(21, 73, 145, .14) !important;
+}
+.aku-header .aku-brand-container { background: transparent !important; border-right: 0 !important; }
+.aku-header .aku-brand { border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.aku-navbar { background: transparent !important; box-shadow: none !important; }
+.aku-header .aku-nav-link,
+.aku-header .aku-theme-btn { color: #fff; }
+.aku-header .aku-nav-link-active { background: rgba(255,255,255,.2) !important; }
+.aku-mobile-menu { border-color: rgba(147,197,253,.35) !important; }
+.aku-footer {
+  background: var(--theme-header-bg, linear-gradient(105deg, #1d58a6 0%, #164788 100%)) !important;
+  border-top: 2px solid color-mix(in srgb, var(--theme-accent, #e2c46e) 72%, transparent) !important;
+  box-shadow: none !important;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: .88rem;
+}
+.aku-footer-credit { display: none !important; }
+
+.aku-about-page,
+.aku-login-page,
+.aku-admin-login-page,
+.aku-ugmain-page,
+.aku-admin-page,
+.challan-page {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--theme-bg-page, #f7fbff) 78%, #fff), var(--theme-bg-page, #eaf3ff)) !important;
+}
+.aku-about-page,
+.aku-login-page,
+.aku-admin-login-page,
+.aku-ugmain-page,
+.aku-admin-page,
+.challan-page,
+.about-page-heading h1,
+.about-content-panel h1 { color: var(--theme-primary, #17365e); }
+
+.about-page-header,
+.about-content-panel,
+.aku-login-card,
+.aku-admin-login-page .aku-admin-card,
+.aku-admin-panel-card,
+.aku-subpage-card,
+.aku-theme-studio-header-card,
+.aku-theme-section-block,
+.challan-card {
+  border-color: rgba(29,88,166,.14) !important;
+  background: rgba(255,255,255,.88) !important;
+  box-shadow: 0 16px 42px rgba(30,70,120,.1), inset 0 1px 0 rgba(255,255,255,.95) !important;
+  backdrop-filter: blur(16px) saturate(135%);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+}
+.about-tab.active,
+.about-tab:hover { color: var(--theme-primary) !important; }
+.about-tab::after { background: var(--theme-secondary) !important; }
+
+.aku-login-btn,
+.aku-admin-btn-login,
+.challan-submit,
+.aku-btn-back-overview,
+.aku-btn-back,
+.aku-admin-btn-back,
+.aku-admin-btn-logout {
+  background: var(--theme-header-bg, linear-gradient(110deg, #2878df, #1555b3)) !important;
+  border-color: var(--theme-primary) !important;
+  box-shadow: 0 8px 20px var(--theme-shadow, rgba(37,99,235,.2)) !important;
+}
+.aku-login-btn:hover,
+.aku-admin-btn-login:hover,
+.challan-submit:hover { filter: brightness(1.06); }
+.aku-ugmain-content,
+.aku-admin-content { background: linear-gradient(145deg, color-mix(in srgb, var(--theme-bg-page, #f7fbff) 78%, #fff), var(--theme-bg-page, #eaf3ff)) !important; }
+.aku-ugmain-sidebar,
+.aku-admin-sidebar { background: linear-gradient(180deg, color-mix(in srgb, var(--theme-primary) 85%, #172b49), color-mix(in srgb, var(--theme-secondary) 70%, #091b35)) !important; color: #fff !important; border-right-color: rgba(255,255,255,.12) !important; }
+.aku-sidebar-group-header.active,
+.aku-sidebar-subitem-btn.active,
+.aku-admin-nav-btn.active { background: rgba(255,255,255,.16) !important; color: #fff !important; border-color: rgba(255,255,255,.2) !important; }
+.aku-ugmain-sidebar .aku-sidebar-group-header,
+.aku-ugmain-sidebar .aku-sidebar-subitem-btn,
+.aku-admin-sidebar .aku-admin-nav-btn { color: rgba(255,255,255,.88) !important; }
+.aku-metric-card,
+.aku-admin-metric-card { border: 1px solid rgba(59,130,246,.12) !important; background: rgba(255,255,255,.88) !important; box-shadow: 0 12px 28px rgba(30,75,140,.08) !important; }
+.aku-input:focus,
+.aku-admin-input:focus,
+.challan-form input:focus,
+.challan-form select:focus { border-color: var(--theme-primary) !important; box-shadow: 0 0 0 3px rgba(var(--theme-primary-rgb),.16) !important; }
+
+.challan-ion-content { --background: var(--theme-bg-page, #eaf3ff) !important; }
+.challan-page { color: #17365e !important; }
+.challan-card { border-radius: 18px !important; }
+.challan-card h1,
+.challan-card h2 { color: var(--theme-primary) !important; }
+
+.dark .aku-about-page,
+.dark .aku-login-page,
+.dark .aku-admin-login-page,
+.dark .aku-ugmain-page,
+.dark .aku-admin-page,
+.dark .challan-page { background: linear-gradient(145deg, color-mix(in srgb, var(--theme-bg-page, #0b1728) 82%, #000), var(--theme-bg-page, #10243e)) !important; color: #e2edfc; }
+.dark .about-page-header,
+.dark .about-content-panel,
+.dark .aku-login-card,
+.dark .aku-admin-login-page .aku-admin-card,
+.dark .aku-admin-panel-card,
+.dark .aku-subpage-card,
+.dark .aku-theme-studio-header-card,
+.dark .aku-theme-section-block,
+.dark .challan-card { background: rgba(15,29,49,.9) !important; border-color: rgba(147,197,253,.18) !important; }
+.dark .aku-ugmain-content,
+.dark .aku-admin-content { background: linear-gradient(145deg, #0b1728, #10243e) !important; }
+.dark .aku-metric-card,
+.dark .aku-admin-metric-card { background: rgba(15,29,49,.9) !important; border-color: rgba(147,197,253,.15) !important; }
+.dark .about-page-heading h1,
+.dark .about-content-panel h1,
+.dark .challan-card h1,
+.dark .challan-card h2 { color: #bfdbfe !important; }
+
+@media (max-width: 700px) {
+  .aku-header .aku-brand-container { background: transparent !important; }
+  .aku-header .aku-mobile-toggle { color: #fff !important; background: rgba(255,255,255,.14) !important; border-color: rgba(255,255,255,.3) !important; }
+}
+
+/* Home reference palette and shared blue header/footer surfaces. */
+.aku-page-container .aku-header { min-height: 86px; background: var(--theme-header-bg, linear-gradient(105deg, #1d58a6 0%, #164788 100%)) !important; }
+.aku-page-container .aku-brand-container,
+.aku-page-container .aku-navbar { background: transparent !important; }
+.aku-page-container .aku-brand-container { border-right: 0 !important; }
+.aku-page-container .aku-brand-logo { width: 66px; height: 66px; }
+.aku-page-container .aku-nav-link { font-family: Roboto, 'Segoe UI', Arial, sans-serif; font-size: .98rem; font-weight: 600; letter-spacing: .01em; background: transparent !important; border-color: transparent !important; box-shadow: none !important; }
+.aku-page-container .aku-nav-link:hover { background: rgba(255,255,255,.1) !important; }
+.aku-page-container .aku-nav-link-active { background: rgba(255,255,255,.2) !important; }
+.aku-page-container .aku-nav-timing { color: #fff !important; }
+.aku-page-container .aku-footer { min-height: 80px; box-sizing: border-box; background: var(--theme-header-bg, linear-gradient(105deg, #1d58a6 0%, #164788 100%)) !important; font-size: .96rem; }
+
+/* Home header shares the footer gradient across both the brand and nav areas. */
+html body .aku-page-container header.aku-header { background: var(--theme-header-bg, linear-gradient(105deg, #1d58a6 0%, #164788 100%)) !important; }
+html body .aku-page-container header.aku-header .aku-brand-container,
+html body .aku-page-container header.aku-header .aku-navbar { background: transparent !important; }
+html body .aku-page-container header.aku-header .aku-brand-container { border-right: 0 !important; }
